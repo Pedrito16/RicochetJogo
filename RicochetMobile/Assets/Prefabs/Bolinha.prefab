@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8801434195987966176}
   - component: {fileID: 8801434195987966183}
   - component: {fileID: 8801434195987966182}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Bolinha
   m_TagString: Untagged
   m_Icon: {fileID: 0}

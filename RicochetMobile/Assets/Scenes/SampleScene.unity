@@ -351,7 +351,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   quantidadeBolasMax: 10
   bolinha: {fileID: 8801434195987966181, guid: 1dc0619aec2c76c49a5d7fbe2b3e5ba9, type: 3}
-  velocidadeBolas: 2
+  velocidadeBolas: 10
   ballsRbList: []
 --- !u!212 &1147494882
 SpriteRenderer:

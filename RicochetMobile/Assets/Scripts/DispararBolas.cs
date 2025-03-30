@@ -35,15 +35,9 @@ public class DispararBolas : MonoBehaviour
         
         if (Input.GetMouseButton(0))
         {
-            Vector2 absMouse = new Vector2(Mathf.Abs(mousePos.x), Mathf.Abs(mousePos.y));
-            Vector2 absTransform = new Vector2(Mathf.Abs(transform.position.x), Mathf.Abs(transform.position.y));
-            
-            Vector2 location = (absTransform - (Vector2)mousePos).normalized;
-            
             Touch touch = Input.GetTouch(0);
-            Debug.DrawRay(transform.position, location);
+            Debug.DrawRay(transform.position, ballsRbList[0].transform.position);
             mousePos = Camera.main.ScreenToWorldPoint(touch.position);
-
         }
         if (Input.touchCount > 0 && Input.GetMouseButtonUp(0))
         {
@@ -60,9 +54,9 @@ public class DispararBolas : MonoBehaviour
         {
             /*Vector2 position = ballsRbList[i].transform.position  mousePos;
             position = position.normalized;*/
-            Vector2 location = transform.position - mousePos;
+            Vector2 distance = (mousePos - ballsRbList[i].transform.position).normalized;
             ballsRbList[i].gameObject.SetActive(true);
-            ballsRbList[i].velocity = mousePos * velocidadeBolas;
+            ballsRbList[i].velocity = distance * velocidadeBolas;
             yield return new WaitForSeconds(0.1f);
         }
     }

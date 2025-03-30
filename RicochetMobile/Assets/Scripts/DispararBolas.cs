@@ -11,7 +11,7 @@ public class DispararBolas : MonoBehaviour
     
     [Header("Debug")]
     [SerializeField] List<Rigidbody2D> ballsRbList;
-
+    Vector3 mousePos;
     // variaveis fora do console
     private void Awake()
     {
@@ -32,13 +32,25 @@ public class DispararBolas : MonoBehaviour
 
     void Update()
     {
-        if (Input.touchCount > 0 && Input.GetMouseButtonDown(0))
+        
+        if (Input.GetMouseButton(0))
         {
+            Vector2 absMouse = new Vector2(Mathf.Abs(mousePos.x), Mathf.Abs(mousePos.y));
+            Vector2 absTransform = new Vector2(Mathf.Abs(transform.position.x), Mathf.Abs(transform.position.y));
+            
+            Vector2 location = (absTransform - (Vector2)mousePos).normalized;
+            
             Touch touch = Input.GetTouch(0);
-            Vector3 mousePos = Camera.main.ScreenToWorldPoint(touch.position);
-            print("atirando bolas na posição: " + mousePos);
-            StartCoroutine(ShotBalls(mousePos));
+            Debug.DrawRay(transform.position, location);
+            mousePos = Camera.main.ScreenToWorldPoint(touch.position);
+
         }
+        if (Input.touchCount > 0 && Input.GetMouseButtonUp(0))
+        {
+            print("atirando bolas na posição: " + mousePos);
+            StartCoroutine(ShotBalls(mousePos)); 
+        }
+
         
     }
     IEnumerator ShotBalls(Vector3 mousePos)
@@ -48,8 +60,9 @@ public class DispararBolas : MonoBehaviour
         {
             /*Vector2 position = ballsRbList[i].transform.position  mousePos;
             position = position.normalized;*/
+            Vector2 location = transform.position - mousePos;
             ballsRbList[i].gameObject.SetActive(true);
-            ballsRbList[i].velocity = position * velocidadeBolas;
+            ballsRbList[i].velocity = mousePos * velocidadeBolas;
             yield return new WaitForSeconds(0.1f);
         }
     }

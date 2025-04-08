@@ -4,18 +4,26 @@ using UnityEngine;
 
 public class DispararBolas : MonoBehaviour
 {
-    [SerializeField] int quantidadeBolasMax;
+    public int quantidadeBolasMax;
     [SerializeField] GameObject bolinha;
-    [Header("Configurações")]
+    [Header("Configuraï¿½ï¿½es")]
     [SerializeField] float velocidadeBolas;
     
     [Header("Debug")]
     [SerializeField] List<Rigidbody2D> ballsRbList;
     Vector3 mousePos;
+    public static DispararBolas instance;
     // variaveis fora do console
     private void Awake()
     {
-
+        if(instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
     void Start()
     {
@@ -41,7 +49,7 @@ public class DispararBolas : MonoBehaviour
         }
         if (Input.touchCount > 0 && Input.GetMouseButtonUp(0))
         {
-            print("atirando bolas na posição: " + mousePos);
+            print("atirando bolas na posiï¿½ï¿½o: " + mousePos);
             StartCoroutine(ShotBalls(mousePos)); 
         }
 
@@ -56,7 +64,7 @@ public class DispararBolas : MonoBehaviour
             position = position.normalized;*/
             Vector2 distance = (mousePos - ballsRbList[i].transform.position).normalized;
             ballsRbList[i].gameObject.SetActive(true);
-            ballsRbList[i].velocity = distance * velocidadeBolas;
+            ballsRbList[i].linearVelocity = distance * velocidadeBolas;
             yield return new WaitForSeconds(0.1f);
         }
     }

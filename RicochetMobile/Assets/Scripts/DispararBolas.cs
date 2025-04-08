@@ -6,14 +6,16 @@ public class DispararBolas : MonoBehaviour
 {
     public int quantidadeBolasMax;
     [SerializeField] GameObject bolinha;
-    [Header("Configura��es")]
+    [Header("Configurações")]
     [SerializeField] float velocidadeBolas;
     
     [Header("Debug")]
-    [SerializeField] List<Rigidbody2D> ballsRbList;
+    public List<Rigidbody2D> ballsRbList;
     Vector3 mousePos;
-    public static DispararBolas instance;
+    public bool allBallsShot = false;
+
     // variaveis fora do console
+    public static DispararBolas instance;
     private void Awake()
     {
         if(instance == null)
@@ -41,15 +43,15 @@ public class DispararBolas : MonoBehaviour
     void Update()
     {
         
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButton(0) && GameManager.state == GameState.PlayerTurn)
         {
             Touch touch = Input.GetTouch(0);
             Debug.DrawRay(transform.position, ballsRbList[0].transform.position);
             mousePos = Camera.main.ScreenToWorldPoint(touch.position);
         }
-        if (Input.touchCount > 0 && Input.GetMouseButtonUp(0))
+        if (Input.touchCount > 0 && Input.GetMouseButtonUp(0) && GameManager.state == GameState.PlayerTurn)
         {
-            print("atirando bolas na posi��o: " + mousePos);
+            print("atirando bolas na posição: " + mousePos);
             StartCoroutine(ShotBalls(mousePos)); 
         }
 
@@ -60,12 +62,12 @@ public class DispararBolas : MonoBehaviour
         print("atirando bolas");
         for(int i = 0; i < ballsRbList.Count; i++)
         {
-            /*Vector2 position = ballsRbList[i].transform.position  mousePos;
-            position = position.normalized;*/
-            Vector2 distance = (mousePos - ballsRbList[i].transform.position).normalized;
+            Vector2 distance = mousePos - ballsRbList[i].transform.position;
+            distance = distance.normalized;
             ballsRbList[i].gameObject.SetActive(true);
             ballsRbList[i].linearVelocity = distance * velocidadeBolas;
             yield return new WaitForSeconds(0.1f);
         }
+        allBallsShot = true;
     }
 }

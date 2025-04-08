@@ -23,7 +23,7 @@ public class MoverPlayer : MonoBehaviour
     {
         if(ballsQuantity <= 0)
         {
-            GameManager.state = GameState.MovementTurn;
+            //GameManager.state = GameState.MovementTurn;
             DispararBolas.instance.transform.position = new Vector2(ballXCordinate, DispararBolas.instance.transform.position.y);
         }
         

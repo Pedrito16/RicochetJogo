@@ -4,8 +4,12 @@ using UnityEngine;
 
 public class DispararBolas : MonoBehaviour
 {
+    [Header("Essentials")]
+    [SerializeField] Transform lineCircle;
+    [SerializeField] LineRenderer lineAim;
     public int quantidadeBolasMax;
     [SerializeField] GameObject bolinha;
+
     [Header("Configurações")]
     [SerializeField] float velocidadeBolas;
     
@@ -54,8 +58,10 @@ public class DispararBolas : MonoBehaviour
             print("atirando bolas na posição: " + mousePos);
             StartCoroutine(ShotBalls(mousePos)); 
         }
+        lineCircle.position = new Vector3(mousePos.x, mousePos.y, 0);
+        lineAim.SetPosition(0, transform.position);
+        lineAim.SetPosition(1, new Vector3(mousePos.x,mousePos.y, 0));
 
-        
     }
     IEnumerator ShotBalls(Vector3 mousePos)
     {

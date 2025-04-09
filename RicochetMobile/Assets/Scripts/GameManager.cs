@@ -17,14 +17,15 @@ public class GameManager : MonoBehaviour
     
     void Update()
     {
-        if (DispararBolas.instance.allBallsShot)
+        if (DispararBolas.instance.allBallsShot && state == GameState.PlayerTurn)
         {
             StartCoroutine(activateObjectAfterSeconds());
         }
-        else
+        else if (!DispararBolas.instance.allBallsShot && state == GameState.PlayerTurn)
         {
             destroyProjectilesObject.SetActive(false);
         }
+        
     }
     IEnumerator activateObjectAfterSeconds()
     {

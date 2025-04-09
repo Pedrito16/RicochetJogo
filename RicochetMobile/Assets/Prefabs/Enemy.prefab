@@ -149,6 +149,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocidade: 2
+  quantasVezesSeMexeu: 0
 --- !u!114 &3624493523607257502
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -161,4 +162,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d8e98e8264278249b1d1b98f33f52c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  life: 5
+  life: 7

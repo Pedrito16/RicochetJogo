@@ -4,18 +4,17 @@ using System.Collections.Generic;
 public class EnemyMovement : EnemyStatus
 {
     [SerializeField] float velocidade;
+    public bool isReadyToGo;
+    [SerializeField] int quantasVezesSeMexeu;
     void Start()
     {
         MoverPlayer.instance.onPlayerTurnEnd += Move;
+        quantasVezesSeMexeu = 1;
     }
 
     
     void Update()
     {
-        if(GameManager.state == GameState.MovementTurn)
-        {
-            StartCoroutine(MoveToNextTile());
-        }
     }
     void Move()
     {
@@ -31,6 +30,7 @@ public class EnemyMovement : EnemyStatus
              iterador += Time.deltaTime * velocidade;
              yield return null;
         }
+        isReadyToGo = true;
         GameManager.state = GameState.PlayerTurn;
     }
 }

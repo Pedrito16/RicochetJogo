@@ -48,7 +48,7 @@ public class DispararBolas : MonoBehaviour
 
     void Update()
     {
-        if(GameManager.state == GameState.MovementTurn)
+        if (GameManager.state == GameState.MovementTurn)
         {
             lineCircle.gameObject.SetActive(false);
             lineAim.enabled = false;

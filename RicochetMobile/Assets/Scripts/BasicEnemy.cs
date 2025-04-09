@@ -18,8 +18,4 @@ public class BasicEnemy : EnemyStatus
     {
         base.TakeDamage(damage);
     }
-    IEnumerator MoveToNextTile()
-    {
-       throw new System.NotImplementedException();
-    }
 }

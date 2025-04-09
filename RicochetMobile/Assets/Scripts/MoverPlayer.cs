@@ -31,15 +31,17 @@ public class MoverPlayer : MonoBehaviour
         ballThatIndicatesWhereToMove.SetActive(false); 
         oneTime = true;
     }
-    private void OnEnable()
-    {
-        ballsQuantity = DispararBolas.instance.quantidadeBolasMax;
-        canRecievePos = true;
-    }
 
 
     void Update()
     {
+
+        if (GameManager.state == GameState.MovementTurn && !canRecievePos)
+        {
+            ballsQuantity = DispararBolas.instance.quantidadeBolasMax;
+            ballThatIndicatesWhereToMove.SetActive(false);
+            canRecievePos = true;
+        }
         if (ballsQuantity <= 0 && oneTime)
         {
             GameManager.state = GameState.MovementTurn;

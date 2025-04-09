@@ -9,6 +9,7 @@ public class Ball : MonoBehaviour, IResetPosWall
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        damage = 1;
     }
     void OnBecameInvisible()
     {
@@ -27,6 +28,11 @@ public class Ball : MonoBehaviour, IResetPosWall
         if (collision.gameObject.TryGetComponent(out EnemyStatus enemy))
         {
             enemy.TakeDamage(damage);
+            print("Colidindo com enemy");
+        }
+        if (collision.gameObject.CompareTag("Wall"))
+        {
+            ResetPos();
         }
     }
 }

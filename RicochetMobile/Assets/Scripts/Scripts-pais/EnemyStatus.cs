@@ -4,18 +4,23 @@ using UnityEngine;
 
 public abstract class EnemyStatus : MonoBehaviour
 {
-    private float distanciaMovimentação = 0.75f;
+    private float distanciaMovimentação = 0.9f;
+    public static int vidaBase = 6;
     private int vida;
+    public static EnemyStatus instance;
 
     public int Vida { get => vida; set => vida = value; }
     public float DistanciaMovimentação { get => distanciaMovimentação; set => distanciaMovimentação = value; }
-
+    private void Awake()
+    {
+        
+    }
+    protected virtual void Começar()
+    {
+        Vida = vidaBase;
+    }
     public virtual void TakeDamage(int damage)
     {
         Vida -= damage;
-        if (Vida <= 0)
-        {
-            Destroy(gameObject);
-        }
     }
 }

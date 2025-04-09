@@ -11,7 +11,7 @@ public class MoverPlayer : MonoBehaviour
     [SerializeField] int ballsQuantity;
     [SerializeField] GameObject ballThatIndicatesWhereToMove;
     public static MoverPlayer instance;
-    [HideInInspector] public bool oneTime;
+    public bool oneTime;
     private void Awake()
     {
         if (instance == null)
@@ -40,11 +40,14 @@ public class MoverPlayer : MonoBehaviour
         {
             ballsQuantity = DispararBolas.instance.quantidadeBolasMax;
             ballThatIndicatesWhereToMove.SetActive(false);
+            oneTime = true;
             canRecievePos = true;
         }
+        print(GameManager.state);
         if (ballsQuantity <= 0 && oneTime)
         {
             GameManager.state = GameState.MovementTurn;
+            GameManager.howManyRoudsPassed += 1;
             ballThatIndicatesWhereToMove.SetActive(false);
             onPlayerTurnEnd?.Invoke();
             StartCoroutine(MovePlayerToPos());

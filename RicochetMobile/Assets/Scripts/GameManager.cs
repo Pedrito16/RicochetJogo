@@ -8,13 +8,14 @@ public enum GameState
 public class GameManager : MonoBehaviour
 {
     public static GameState state;
+    public static int howManyRoudsPassed;
     [SerializeField] GameObject destroyProjectilesObject;
     void Start()
     {
         state = GameState.PlayerTurn;
     }
 
-    
+
     void Update()
     {
         if (DispararBolas.instance.allBallsShot && state == GameState.PlayerTurn)
@@ -29,7 +30,7 @@ public class GameManager : MonoBehaviour
     }
     IEnumerator activateObjectAfterSeconds()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.25f);
         destroyProjectilesObject.SetActive(true);
     }
 }

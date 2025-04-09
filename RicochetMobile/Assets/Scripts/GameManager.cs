@@ -21,6 +21,10 @@ public class GameManager : MonoBehaviour
         {
             StartCoroutine(activateObjectAfterSeconds());
         }
+        else
+        {
+            destroyProjectilesObject.SetActive(false);
+        }
     }
     IEnumerator activateObjectAfterSeconds()
     {

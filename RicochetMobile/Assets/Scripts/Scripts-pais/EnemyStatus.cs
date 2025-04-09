@@ -4,10 +4,11 @@ using UnityEngine;
 
 public abstract class EnemyStatus : MonoBehaviour
 {
-
+    private float distanciaMovimentação = 0.75f;
     private int vida;
 
     public int Vida { get => vida; set => vida = value; }
+    public float DistanciaMovimentação { get => distanciaMovimentação; set => distanciaMovimentação = value; }
 
     public virtual void TakeDamage(int damage)
     {

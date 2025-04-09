@@ -15,8 +15,9 @@ public class DispararBolas : MonoBehaviour
     
     [Header("Debug")]
     public List<Rigidbody2D> ballsRbList;
-    Vector3 mousePos;
+    Vector2 mousePos;
     public bool allBallsShot = false;
+    [SerializeField] bool canShoot;
 
     // variaveis fora do console
     public static DispararBolas instance;
@@ -42,26 +43,46 @@ public class DispararBolas : MonoBehaviour
             ball.SetActive(false);
             ballsRbList.Add(ball.GetComponent<Rigidbody2D>());
         }
+        lineAim.enabled = false;
     }
 
     void Update()
     {
-        
+        if(GameManager.state == GameState.MovementTurn)
+        {
+            lineCircle.gameObject.SetActive(false);
+            lineAim.enabled = false;
+            canShoot = false;
+            allBallsShot = false;
+        }
         if (Input.GetMouseButton(0) && GameManager.state == GameState.PlayerTurn)
         {
+            lineAim.enabled = true;
             Touch touch = Input.GetTouch(0);
             Debug.DrawRay(transform.position, ballsRbList[0].transform.position);
             mousePos = Camera.main.ScreenToWorldPoint(touch.position);
         }
-        if (Input.touchCount > 0 && Input.GetMouseButtonUp(0) && GameManager.state == GameState.PlayerTurn)
+        if (Input.touchCount > 0 && Input.GetMouseButtonUp(0) && GameManager.state == GameState.PlayerTurn && canShoot)
         {
             print("atirando bolas na posição: " + mousePos);
-            StartCoroutine(ShotBalls(mousePos)); 
+            StartCoroutine(ShotBalls(mousePos));
         }
-        lineCircle.position = new Vector3(mousePos.x, mousePos.y, 0);
+
         lineAim.SetPosition(0, transform.position);
         lineAim.SetPosition(1, new Vector3(mousePos.x,mousePos.y, 0));
 
+        if(mousePos.y <= gameObject.transform.position.y + 0.25f)
+        {
+            lineAim.enabled = false;
+            lineCircle.gameObject.SetActive(false);
+            canShoot = false;
+        }
+        else if(mousePos.y > gameObject.transform.position.y + 0.25f)
+        {
+            canShoot = true;
+            lineAim.enabled = true;
+            lineCircle.gameObject.SetActive(false);
+        }
     }
     IEnumerator ShotBalls(Vector3 mousePos)
     {

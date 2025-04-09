@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2681619756411602510}
   - component: {fileID: 5794762418810139342}
   - component: {fileID: 1040248049981958625}
+  - component: {fileID: 6356305241397809968}
   - component: {fileID: 3624493523607257502}
   m_Layer: 0
   m_Name: Enemy
@@ -135,6 +136,19 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &6356305241397809968
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6574163866810343162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 880c546efafb7854aa30a549fbbd905e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  velocidade: 2
 --- !u!114 &3624493523607257502
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -147,4 +161,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d8e98e8264278249b1d1b98f33f52c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vida: 10
+  life: 5

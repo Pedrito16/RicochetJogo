@@ -58,14 +58,13 @@ public class DispararBolas : MonoBehaviour
             alreadyShooted = false;
             allBallsShot = false;
         }
-        if(GameManager.state == GameState.PlayerTurn && Input.touchCount > 0)
+        if(GameManager.state == GameState.PlayerTurn)
         {
             if (Input.GetMouseButton(0) && canShoot && !alreadyShooted)
             {
                 lineAim.enabled = true;
-                Touch touch = Input.GetTouch(0);
                 Debug.DrawRay(transform.position, ballsRbList[0].transform.position);
-                mousePos = Camera.main.ScreenToWorldPoint(touch.position);
+                mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             }
             if (Input.GetMouseButtonUp(0) && canShoot && !alreadyShooted)
             {
@@ -83,13 +82,11 @@ public class DispararBolas : MonoBehaviour
             canShoot = true;
             lineAim.enabled = true;
             lineCircle.gameObject.SetActive(true);
-            
         }
-        else if(mousePos.y <= gameObject.transform.position.y + 0.25f&& !alreadyShooted)
+        else if(mousePos.y <= gameObject.transform.position.y + 0.25f && !alreadyShooted)
         {
             lineAim.enabled = false;
             lineCircle.gameObject.SetActive(false);
-            canShoot = false;
         }
     }
     IEnumerator ShotBalls(Vector3 mousePos)

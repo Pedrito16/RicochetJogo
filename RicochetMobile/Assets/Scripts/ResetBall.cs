@@ -24,15 +24,16 @@ public class ResetBall : MonoBehaviour
         if(DispararBolas.instance.allBallsShot)
         {
             resetButton.interactable = true;
+            bolaIcon.alpha = 1;
         }
         else
         {
             resetButton.interactable = false;
+            bolaIcon.alpha = 0.5f;
         }
     }
     public void PassRound()
     {
-        print("Passando de round");
         for (int i = 0; i < ballsList.Count; i++)
         {
             ballsList[i].ResetPos();

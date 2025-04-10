@@ -45,11 +45,13 @@ public class MoverPlayer : MonoBehaviour
         }
         if (ballsQuantity <= 0 && oneTime)
         {
+            print("passando de round");
             GameManager.state = GameState.MovementTurn;
             GameManager.howManyRoudsPassed += 1;
             ballThatIndicatesWhereToMove.SetActive(false);
             onPlayerTurnEnd?.Invoke();
             StartCoroutine(MovePlayerToPos());
+            canRecievePos = false;
             oneTime = false;
         }
     }

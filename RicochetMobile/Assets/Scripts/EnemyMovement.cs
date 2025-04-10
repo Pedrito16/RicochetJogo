@@ -4,6 +4,7 @@ using System.Collections.Generic;
 public class EnemyMovement : EnemyStatus
 {
     [SerializeField] float velocidade;
+    [SerializeField] int howManyRoundsSurvived;
     public bool isReadyToGo;
     void Start()
     {
@@ -13,9 +14,18 @@ public class EnemyMovement : EnemyStatus
     
     void Update()
     {
+        
     }
     public void Move()
     {
+        if (howManyRoundsSurvived >= 5)
+        {
+            DeathScreen.isDead = true;
+        }
+        else
+        {
+            howManyRoundsSurvived++;
+        }
         StartCoroutine(MoveToNextTile());
     }
     public IEnumerator MoveToNextTile()

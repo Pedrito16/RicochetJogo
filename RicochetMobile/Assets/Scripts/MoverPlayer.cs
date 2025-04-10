@@ -8,7 +8,7 @@ public class MoverPlayer : MonoBehaviour
     public EndPlayerTurn onPlayerTurnEnd;
     [SerializeField] bool canRecievePos;
     [SerializeField] float ballXCordinate;
-    [SerializeField] int ballsQuantity;
+    public int ballsQuantity;
     [SerializeField] GameObject ballThatIndicatesWhereToMove;
     public static MoverPlayer instance;
     public bool oneTime;
@@ -43,7 +43,6 @@ public class MoverPlayer : MonoBehaviour
             oneTime = true;
             canRecievePos = true;
         }
-        print(GameManager.state);
         if (ballsQuantity <= 0 && oneTime)
         {
             GameManager.state = GameState.MovementTurn;

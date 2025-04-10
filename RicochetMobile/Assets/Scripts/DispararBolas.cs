@@ -32,11 +32,8 @@ public class DispararBolas : MonoBehaviour
         {
             Destroy(gameObject);
         }
-    }
-    void Start()
-    {
         //pool para bolinhas
-        for(int i = 0; i < quantidadeBolasMax; i++)
+        for (int i = 0; i < quantidadeBolasMax; i++)
         {
             GameObject ball = Instantiate(bolinha);
             ball.transform.SetParent(transform, false);
@@ -45,6 +42,10 @@ public class DispararBolas : MonoBehaviour
             ballsRbList.Add(ball.GetComponent<Rigidbody2D>());
         }
         lineAim.enabled = false;
+    }
+    void Start()
+    {
+        
     }
 
     void Update()

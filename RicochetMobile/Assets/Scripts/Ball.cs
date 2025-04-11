@@ -5,7 +5,7 @@ using UnityEngine;
 public class Ball : MonoBehaviour, IResetPosWall
 {
     [SerializeField] Rigidbody2D rb;
-    [SerializeField] int damage;
+    public int damage;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();

@@ -6,9 +6,11 @@ public class DeathScreen : MonoBehaviour
     public static bool isDead = false;
     [SerializeField] private GameObject deathPanel;
     [SerializeField] TextMeshProUGUI scoreText;
+    Ball bolasGordas;
     void Start()
     {
         deathPanel.SetActive(false); 
+        bolasGordas.damage = 1;
     }
 
     

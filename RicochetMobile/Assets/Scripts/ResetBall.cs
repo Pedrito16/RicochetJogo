@@ -10,13 +10,17 @@ public class ResetBall : MonoBehaviour
     void Start()
     {
         bolaIcon = GetComponentInChildren<CanvasGroup>();
-        resetButton.onClick.AddListener(PassRound);
+        resetButton.onClick.AddListener(() => PassRound(4));
+      
+
         ballsList = new List<Ball>();
         for (int i = 0; i < DispararBolas.instance.ballsRbList.Count; i++)
         {
             ballsList.Add(DispararBolas.instance.ballsRbList[i].GetComponent<Ball>());
         }
     }
+   
+
 
 
     void Update()
@@ -32,7 +36,7 @@ public class ResetBall : MonoBehaviour
             bolaIcon.alpha = 0.5f;
         }
     }
-    public void PassRound()
+    public void PassRound(int bolasGordas)
     {
         for (int i = 0; i < ballsList.Count; i++)
         {

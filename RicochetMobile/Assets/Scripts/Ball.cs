@@ -13,6 +13,7 @@ public class Ball : MonoBehaviour, IResetPosWall
     }
     void OnBecameInvisible()
     {
+//eu adoro Ronaldo 
         rb.linearVelocity = Vector3.zero;
         transform.position = DispararBolas.instance.transform.position;
         gameObject.SetActive(false);

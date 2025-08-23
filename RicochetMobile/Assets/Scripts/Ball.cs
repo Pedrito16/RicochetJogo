@@ -1,9 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 public class Ball : MonoBehaviour, IResetPosWall
 {
+    [SerializeField] Vector2 ballDirection;
     [SerializeField] Rigidbody2D rb;
     public int damage;
     void Start()
@@ -16,6 +16,17 @@ public class Ball : MonoBehaviour, IResetPosWall
         rb.linearVelocity = Vector3.zero;
         transform.position = DispararBolas.instance.transform.position;
         gameObject.SetActive(false);
+    }
+    void LateUpdate()
+    {
+        Vector2 velocity = rb.linearVelocity;
+        if (velocity.sqrMagnitude > 0.01f)
+        {
+            float angulo = Mathf.Atan2(velocity.y, velocity.x) * Mathf.Rad2Deg;
+
+            transform.rotation = Quaternion.AngleAxis(angulo - 90f, Vector3.forward); //copiei do gpt, gira a bola para cima
+                                                                                      //fiz isso para os efeitos ficarem sempre olhando para cima
+        }
     }
     public void ResetPos()
     {
@@ -34,5 +45,9 @@ public class Ball : MonoBehaviour, IResetPosWall
         {
             ResetPos();
         }
+    }
+    public void RotateBall()
+    {
+        
     }
 }

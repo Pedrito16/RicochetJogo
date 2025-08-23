@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         state = GameState.PlayerTurn;
+        //Time.timeScale = 0.2f;
     }
 
 

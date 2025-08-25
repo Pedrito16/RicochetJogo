@@ -45,45 +45,44 @@ public class DispararBolas : MonoBehaviour
     }
     void Start()
     {
-        
+        GameManager.instance.OnChange += OnEnemyTurnStart;
     }
-
+    void OnEnemyTurnStart()
+    {
+        lineCircle.gameObject.SetActive(false);
+        lineAim.enabled = false;
+        canShoot = true;
+        alreadyShooted = false;
+        allBallsShot = false;
+    }
     void Update()
     {
-        if (GameManager.state == GameState.MovementTurn)
-        {
-            lineCircle.gameObject.SetActive(false);
-            lineAim.enabled = false;
-            canShoot = true;
-            alreadyShooted = false;
-            allBallsShot = false;
-        }
         if(GameManager.state == GameState.PlayerTurn)
         {
             if (Input.GetMouseButton(0) && canShoot && !alreadyShooted)
             {
                 lineAim.enabled = true;
-                Debug.DrawRay(transform.position, ballsRbList[0].transform.position);
                 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             }
             if (Input.GetMouseButtonUp(0) && canShoot && !alreadyShooted)
             {
                 alreadyShooted = true;
-                print("atirando bolas na posição: " + mousePos);
+                lineAim.enabled = false;
                 StartCoroutine(ShotBalls(mousePos));
             }
         }
         
 
-        lineAim.SetPosition(0, transform.position);
+        lineAim.SetPosition(0, transform.parent.position);
         lineAim.SetPosition(1, new Vector3(mousePos.x,mousePos.y, 0));
+
         if(mousePos.y > gameObject.transform.position.y + 0.25f && !alreadyShooted)
         {
             canShoot = true;
             lineAim.enabled = true;
             lineCircle.gameObject.SetActive(true);
         }
-        else if(mousePos.y <= gameObject.transform.position.y + 0.25f && !alreadyShooted)
+        else if(mousePos.y <= gameObject.transform.parent.position.y + 0.25f && !alreadyShooted)
         {
             lineAim.enabled = false;
             lineCircle.gameObject.SetActive(false);

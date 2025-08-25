@@ -10,6 +10,14 @@ public class GameManager : MonoBehaviour
     public static GameState state;
     public static int howManyRoudsPassed;
     [SerializeField] GameObject destroyProjectilesObject;
+    public delegate void OnGameStateChange();
+    public OnGameStateChange OnChange;
+    public static GameManager instance;
+    private void Awake()
+    {
+        instance = this;
+    }
+
     void Start()
     {
         state = GameState.PlayerTurn;
@@ -27,7 +35,6 @@ public class GameManager : MonoBehaviour
         {
             destroyProjectilesObject.SetActive(false);
         }
-        
     }
     IEnumerator activateObjectAfterSeconds()
     {

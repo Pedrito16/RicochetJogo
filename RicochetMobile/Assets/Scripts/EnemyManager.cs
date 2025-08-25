@@ -9,10 +9,4 @@ public class EnemyManager : MonoBehaviour
     {
         spawnEnemies = GetComponent<SpawnEnemies>();
     }
-
-    
-    void Update()
-    {
-
-    }
 }

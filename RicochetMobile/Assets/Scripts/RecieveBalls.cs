@@ -2,7 +2,7 @@ using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class MoverPlayer : MonoBehaviour
+public class RecieveBalls : MonoBehaviour
 {
     public delegate void EndPlayerTurn();
     public EndPlayerTurn onPlayerTurnEnd;
@@ -10,8 +10,8 @@ public class MoverPlayer : MonoBehaviour
     [SerializeField] float ballXCordinate;
     public int ballsQuantity;
     [SerializeField] GameObject ballThatIndicatesWhereToMove;
-    public static MoverPlayer instance;
-    public bool oneTime;
+    DispararBolas dispararBolas;
+    public static RecieveBalls instance;
     private void Awake()
     {
         if (instance == null)
@@ -25,40 +25,32 @@ public class MoverPlayer : MonoBehaviour
     }
     void Start()
     {
-        ballsQuantity = DispararBolas.instance.quantidadeBolasMax;
+        dispararBolas = DispararBolas.instance;
+        ballsQuantity = dispararBolas.quantidadeBolasMax;
         canRecievePos = true;
         gameObject.SetActive(false);
         ballThatIndicatesWhereToMove.SetActive(false); 
-        oneTime = true;
     }
-
-
-    void Update()
+    public void PassTurn()
     {
+        GameManager.state = GameState.MovementTurn;
+        GameManager.howManyRoudsPassed += 1;
+        ballThatIndicatesWhereToMove.SetActive(false);
 
-        if (GameManager.state == GameState.MovementTurn && !canRecievePos)
-        {
-            ballsQuantity = DispararBolas.instance.quantidadeBolasMax;
-            ballThatIndicatesWhereToMove.SetActive(false);
-            oneTime = true;
-            canRecievePos = true;
-        }
-        if (ballsQuantity <= 0 && oneTime)
-        {
-            print("passando de round");
-            GameManager.state = GameState.MovementTurn;
-            GameManager.howManyRoudsPassed += 1;
-            ballThatIndicatesWhereToMove.SetActive(false);
-            onPlayerTurnEnd?.Invoke();
-            StartCoroutine(MovePlayerToPos());
-            canRecievePos = false;
-            oneTime = false;
-        }
+        onPlayerTurnEnd?.Invoke();
+
+        StartCoroutine(MovePlayerToPos());
+        GameManager.instance.OnChange?.Invoke();
+
+        ballsQuantity = dispararBolas.quantidadeBolasMax;
+        ballThatIndicatesWhereToMove.SetActive(false);
+        canRecievePos = true;
     }
     IEnumerator MovePlayerToPos()
     {
         float iterador = 0;
-        Transform playerPos = DispararBolas.instance.transform;
+        Transform playerPos = dispararBolas.transform.parent;
+
         while (playerPos.position.x != ballXCordinate)
         {
             playerPos.position = Vector2.Lerp(playerPos.position, new Vector2(ballXCordinate,playerPos.position.y), iterador);
@@ -79,7 +71,8 @@ public class MoverPlayer : MonoBehaviour
             }
             ballsQuantity--;
             target.ResetPos();
-            
+            if(ballsQuantity <= 0)
+                PassTurn();
         }
     }
 }

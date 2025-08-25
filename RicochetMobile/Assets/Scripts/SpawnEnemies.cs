@@ -16,8 +16,8 @@ public class SpawnEnemies : MonoBehaviour
     }
     void Start()
     {
-        MoverPlayer.instance.onPlayerTurnEnd += InstantiateNextRow;
-        MoverPlayer.instance.onPlayerTurnEnd += UpgradeEnemies;
+        RecieveBalls.instance.onPlayerTurnEnd += InstantiateNextRow;
+        RecieveBalls.instance.onPlayerTurnEnd += UpgradeEnemies;
         enemyManager = GetComponent<EnemyManager>();
         InstantiateNextRow();
     }
@@ -44,9 +44,5 @@ public class SpawnEnemies : MonoBehaviour
         int numeroDeVidasAdicionais = Mathf.FloorToInt(GameManager.howManyRoudsPassed / 2);
         EnemyStatus.vidaBase = 6 + numeroDeVidasAdicionais;
         print("aumentando vida para:" + EnemyStatus.vidaBase.ToString());
-    }
-    void Update()
-    {
-        
     }
 }

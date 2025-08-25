@@ -25,10 +25,9 @@ public class BasicEnemy : EnemyStatus
     public override void TakeDamage(int damage)
     {
         Vida -= damage;
-        print("To tomando dano ai ai aia iaia");
         if (Vida <= 0)
         {
-            MoverPlayer.instance.onPlayerTurnEnd -= movementScript.Move;
+            RecieveBalls.instance.onPlayerTurnEnd -= movementScript.Move;
             Destroy(gameObject);
         }
     }

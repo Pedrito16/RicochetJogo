@@ -382,6 +382,59 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 182723330}
   m_CullTransparentMesh: 1
+--- !u!1 &413392571
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 413392572}
+  - component: {fileID: 413392573}
+  m_Layer: 0
+  m_Name: ShotBalls
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &413392572
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 413392571}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.68, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1147494883}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &413392573
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 413392571}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac37868af4d59044280e8876dccd3c3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lineCircle: {fileID: 1539044096}
+  lineAim: {fileID: 1147494885}
+  quantidadeBolasMax: 13
+  bolinha: {fileID: 8801434195987966181, guid: 1dc0619aec2c76c49a5d7fbe2b3e5ba9, type: 3}
+  velocidadeBolas: 6
+  ballsRbList: []
+  allBallsShot: 0
+  alreadyShooted: 0
+  canShoot: 0
 --- !u!1 &488710853
 GameObject:
   m_ObjectHideFlags: 0
@@ -655,51 +708,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deathPanel: {fileID: 158667266}
   scoreText: {fileID: 182723332}
---- !u!1 &740422740
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 740422742}
-  - component: {fileID: 740422741}
-  m_Layer: 0
-  m_Name: TesteLinq
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &740422741
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 740422740}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6d2773acb0623714f93c5d49da10c213, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  numerosGrandes: 00000000000000000000000000000000
---- !u!4 &740422742
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 740422740}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.237935, y: -0.4590208, z: 8.147393}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &861109958
 GameObject:
   m_ObjectHideFlags: 0
@@ -1092,8 +1100,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1147494883}
   - component: {fileID: 1147494882}
-  - component: {fileID: 1147494884}
-  - component: {fileID: 1147494881}
   - component: {fileID: 1147494885}
   m_Layer: 0
   m_Name: Player
@@ -1102,27 +1108,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1147494881
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1147494880}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac37868af4d59044280e8876dccd3c3e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lineCircle: {fileID: 1539044096}
-  lineAim: {fileID: 1147494885}
-  quantidadeBolasMax: 13
-  bolinha: {fileID: 8801434195987966181, guid: 1dc0619aec2c76c49a5d7fbe2b3e5ba9, type: 3}
-  velocidadeBolas: 6
-  ballsRbList: []
-  allBallsShot: 0
-  alreadyShooted: 0
-  canShoot: 0
 --- !u!212 &1147494882
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1190,21 +1175,10 @@ Transform:
   m_LocalPosition: {x: -0.02, y: -4.37, z: 0}
   m_LocalScale: {x: 0.5585765, y: 0.5585765, z: 0.5585765}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 413392572}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1147494884
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1147494880}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b571dff914e005428809c79bf4f28b2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!120 &1147494885
 LineRenderer:
   serializedVersion: 2
@@ -1260,14 +1234,32 @@ LineRenderer:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 0.44871235
-        value: 0.1692923
+        time: 0.09954548
+        value: 0.23847565
         inSlope: 0
         outSlope: 0
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.70111734
+        value: 0.11949685
+        inSlope: -0.12508735
+        outSlope: -0.12508735
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.17032339
+        outWeight: 0
+      - serializedVersion: 3
+        time: 0.97206706
+        value: 0.056603767
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
@@ -1830,14 +1822,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1471601316}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc0edf0f8a03875418f334f5589a671a, type: 3}
+  m_Script: {fileID: 11500000, guid: cfa81bae17e521b45b6e601dc409f4b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   canRecievePos: 0
   ballXCordinate: 0
-  ballsQuantity: 0
+  ballsQuantity: 13
   ballThatIndicatesWhereToMove: {fileID: 1690764769}
-  oneTime: 0
 --- !u!1 &1539044095
 GameObject:
   m_ObjectHideFlags: 0
@@ -2006,7 +1997,7 @@ Transform:
   m_GameObject: {fileID: 1690764769}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.2, y: -1.04, z: 0}
+  m_LocalPosition: {x: 5.98, y: -6.03, z: 0}
   m_LocalScale: {x: 0.28405, y: 0.28405, z: 0.28405}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2523,4 +2514,3 @@ SceneRoots:
   - {fileID: 1690764771}
   - {fileID: 1308239158}
   - {fileID: 1125855406}
-  - {fileID: 740422742}

@@ -39,7 +39,6 @@ public class Ball : MonoBehaviour, IResetPosWall
         if (collision.gameObject.TryGetComponent(out EnemyStatus enemy))
         {
             enemy.TakeDamage(damage);
-            print("Colidindo com enemy");
         }
         if (collision.gameObject.CompareTag("Wall"))
         {

@@ -10,7 +10,7 @@ public class ResetBall : MonoBehaviour
     void Start()
     {
         bolaIcon = GetComponentInChildren<CanvasGroup>();
-        resetButton.onClick.AddListener(() => PassRound(4));
+        resetButton.onClick.AddListener(() => PassRound());
       
 
         ballsList = new List<Ball>();
@@ -36,12 +36,15 @@ public class ResetBall : MonoBehaviour
             bolaIcon.alpha = 0.5f;
         }
     }
-    public void PassRound(int bolasGordas)
+    public void PassRound()
     {
         for (int i = 0; i < ballsList.Count; i++)
         {
             ballsList[i].ResetPos();
         }
-        MoverPlayer.instance.ballsQuantity = 0;
+
+        RecieveBalls recieveBalls = RecieveBalls.instance;
+        recieveBalls.ballsQuantity = 0;
+        recieveBalls.PassTurn();
     }
 }

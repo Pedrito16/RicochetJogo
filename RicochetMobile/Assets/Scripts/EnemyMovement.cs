@@ -8,7 +8,7 @@ public class EnemyMovement : EnemyStatus
     public bool isReadyToGo;
     void Start()
     {
-        MoverPlayer.instance.onPlayerTurnEnd += Move;
+        RecieveBalls.instance.onPlayerTurnEnd += Move;
     }
 
     

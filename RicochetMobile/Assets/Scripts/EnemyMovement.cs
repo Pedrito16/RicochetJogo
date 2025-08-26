@@ -4,6 +4,7 @@ using System.Collections.Generic;
 public class EnemyMovement : EnemyStatus
 {
     [SerializeField] float velocidade;
+    [SerializeField] int roundsToWin = 8;
     [SerializeField] int howManyRoundsSurvived;
     public bool isReadyToGo;
     void Start()
@@ -18,7 +19,7 @@ public class EnemyMovement : EnemyStatus
     }
     public void Move()
     {
-        if (howManyRoundsSurvived >= 5)
+        if (howManyRoundsSurvived >= roundsToWin)
         {
             DeathScreen.isDead = true;
         }

@@ -10,7 +10,6 @@ public class DeathScreen : MonoBehaviour
     void Start()
     {
         deathPanel.SetActive(false); 
-        bolasGordas.damage = 1;
     }
 
     

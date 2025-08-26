@@ -76,14 +76,15 @@ public class DispararBolas : MonoBehaviour
         lineAim.SetPosition(0, transform.parent.position);
         lineAim.SetPosition(1, new Vector3(mousePos.x,mousePos.y, 0));
 
-        if(mousePos.y > gameObject.transform.position.y + 0.25f && !alreadyShooted)
+        if(mousePos.y > gameObject.transform.position.y && !alreadyShooted)
         {
             canShoot = true;
             lineAim.enabled = true;
             lineCircle.gameObject.SetActive(true);
         }
-        else if(mousePos.y <= gameObject.transform.parent.position.y + 0.25f && !alreadyShooted)
+        else if(mousePos.y <= gameObject.transform.position.y && !alreadyShooted)
         {
+            canShoot = false;
             lineAim.enabled = false;
             lineCircle.gameObject.SetActive(false);
         }

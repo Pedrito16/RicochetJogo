@@ -9,6 +9,7 @@ public class SpawnEnemies : MonoBehaviour
     [SerializeField] int spawnChance;
     [SerializeField] float espaçamento;
     [SerializeField] int rows;
+    [Header("Enemy Info")]
     EnemyManager enemyManager;
     private void Awake()
     {
@@ -18,7 +19,6 @@ public class SpawnEnemies : MonoBehaviour
     {
         RecieveBalls.instance.onPlayerTurnEnd += InstantiateNextRow;
         RecieveBalls.instance.onPlayerTurnEnd += UpgradeEnemies;
-        enemyManager = GetComponent<EnemyManager>();
         InstantiateNextRow();
     }
     void InstantiateNextRow()

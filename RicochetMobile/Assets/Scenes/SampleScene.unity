@@ -427,7 +427,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lineCircle: {fileID: 1539044096}
-  lineAim: {fileID: 1147494885}
+  lineRenderer: {fileID: 1147494885}
   quantidadeBolasMax: 13
   bolinha: {fileID: 8801434195987966181, guid: 1dc0619aec2c76c49a5d7fbe2b3e5ba9, type: 3}
   velocidadeBolas: 6

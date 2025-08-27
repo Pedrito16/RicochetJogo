@@ -6,7 +6,7 @@ public class DispararBolas : MonoBehaviour
 {
     [Header("Essentials")]
     [SerializeField] Transform lineCircle;
-    [SerializeField] LineRenderer lineAim;
+    [SerializeField] LineRenderer lineRenderer;
     public int quantidadeBolasMax;
     [SerializeField] GameObject bolinha;
 
@@ -18,6 +18,7 @@ public class DispararBolas : MonoBehaviour
     Vector2 mousePos;
     public bool allBallsShot = false;
     [SerializeField] bool alreadyShooted;
+    [SerializeField] bool isOnBounds;
     [SerializeField] bool canShoot;
 
     // variaveis fora do console
@@ -41,16 +42,18 @@ public class DispararBolas : MonoBehaviour
             ball.SetActive(false);
             ballsRbList.Add(ball.GetComponent<Rigidbody2D>());
         }
-        lineAim.enabled = false;
+        lineRenderer.enabled = false;
     }
     void Start()
     {
+        canShoot = true;
+        lineCircle.gameObject.SetActive(true);
         GameManager.instance.OnChange += OnEnemyTurnStart;
     }
     void OnEnemyTurnStart()
     {
         lineCircle.gameObject.SetActive(false);
-        lineAim.enabled = false;
+        lineRenderer.enabled = false;
         canShoot = true;
         alreadyShooted = false;
         allBallsShot = false;
@@ -61,31 +64,40 @@ public class DispararBolas : MonoBehaviour
         {
             if (Input.GetMouseButton(0) && canShoot && !alreadyShooted)
             {
-                lineAim.enabled = true;
+                lineRenderer.enabled = true;
                 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                Aim();
             }
-            if (Input.GetMouseButtonUp(0) && canShoot && !alreadyShooted)
+            if (Input.GetMouseButtonUp(0) && canShoot && !alreadyShooted && isOnBounds)
             {
                 alreadyShooted = true;
-                lineAim.enabled = false;
+                lineRenderer.enabled = false;
+                lineCircle.gameObject.SetActive(false);
                 StartCoroutine(ShotBalls(mousePos));
             }
         }
         
 
-        lineAim.SetPosition(0, transform.parent.position);
-        lineAim.SetPosition(1, new Vector3(mousePos.x,mousePos.y, 0));
+        lineRenderer.SetPosition(0, transform.parent.position);
+        lineRenderer.SetPosition(1, new Vector3(mousePos.x,mousePos.y, 0));
 
-        if(mousePos.y > gameObject.transform.position.y && !alreadyShooted)
+        
+    }
+    void Aim()
+    {
+        if (mousePos.y > gameObject.transform.position.y && !isOnBounds)
         {
+            lineRenderer.enabled = true;
+            lineCircle.transform.position = mousePos;
+            print("Correto");
             canShoot = true;
-            lineAim.enabled = true;
+            isOnBounds = true;
             lineCircle.gameObject.SetActive(true);
         }
-        else if(mousePos.y <= gameObject.transform.position.y && !alreadyShooted)
+        else if (mousePos.y <= gameObject.transform.position.y && isOnBounds)
         {
-            canShoot = false;
-            lineAim.enabled = false;
+            isOnBounds = false;
+            lineRenderer.enabled = false;
             lineCircle.gameObject.SetActive(false);
         }
     }
@@ -100,6 +112,7 @@ public class DispararBolas : MonoBehaviour
             ballsRbList[i].linearVelocity = distance * velocidadeBolas;
             yield return new WaitForSeconds(0.1f);
         }
+        
         allBallsShot = true;
     }
 }

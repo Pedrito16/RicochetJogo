@@ -47,7 +47,7 @@ public class DispararBolas : MonoBehaviour
     void Start()
     {
         canShoot = true;
-        lineCircle.gameObject.SetActive(true);
+        lineCircle.gameObject.SetActive(false);
         GameManager.instance.OnChange += OnEnemyTurnStart;
     }
     void OnEnemyTurnStart()
@@ -85,7 +85,7 @@ public class DispararBolas : MonoBehaviour
     }
     void Aim()
     {
-        if (mousePos.y > gameObject.transform.position.y && !isOnBounds)
+        if (mousePos.y > gameObject.transform.position.y)
         {
             lineRenderer.enabled = true;
             lineCircle.transform.position = mousePos;
@@ -94,7 +94,7 @@ public class DispararBolas : MonoBehaviour
             isOnBounds = true;
             lineCircle.gameObject.SetActive(true);
         }
-        else if (mousePos.y <= gameObject.transform.position.y && isOnBounds)
+        else if (mousePos.y <= gameObject.transform.position.y)
         {
             isOnBounds = false;
             lineRenderer.enabled = false;

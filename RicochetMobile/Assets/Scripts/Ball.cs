@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 public class Ball : MonoBehaviour, IResetPosWall
 {
+    [SerializeField] AudioSource audioSource;
     [SerializeField] Vector2 ballDirection;
     [SerializeField] Rigidbody2D rb;
     public int damage;
@@ -36,6 +37,9 @@ public class Ball : MonoBehaviour, IResetPosWall
     }
     void OnCollisionEnter2D(Collision2D collision)
     {
+        float randomPitch = Random.Range(0.8f, 1.2f);
+        audioSource.pitch = randomPitch;
+        audioSource.PlayOneShot(audioSource.clip);
         if (collision.gameObject.TryGetComponent(out EnemyStatus enemy))
         {
             enemy.TakeDamage(damage);

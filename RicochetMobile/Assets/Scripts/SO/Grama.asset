@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bce712bc943baf44eb651c1f35a67071, type: 3}
+  m_Name: Grama
+  m_EditorClassIdentifier: 
+  sideDecorationsSprites:
+  - {fileID: -1900228350779512395, guid: 7ccd74e5de02567488cae29abe196cba, type: 3}
+  - {fileID: -2556956474621596019, guid: 7ccd74e5de02567488cae29abe196cba, type: 3}
+  - {fileID: -1900228350779512395, guid: 7ccd74e5de02567488cae29abe196cba, type: 3}
+  - {fileID: -1900228350779512395, guid: 7ccd74e5de02567488cae29abe196cba, type: 3}
+  - {fileID: -3881823632289242280, guid: 7ccd74e5de02567488cae29abe196cba, type: 3}
+  - {fileID: -1900228350779512395, guid: 7ccd74e5de02567488cae29abe196cba, type: 3}
+  - {fileID: -2556956474621596019, guid: 7ccd74e5de02567488cae29abe196cba, type: 3}
+  - {fileID: -3881823632289242280, guid: 7ccd74e5de02567488cae29abe196cba, type: 3}
+  - {fileID: -3881823632289242280, guid: 7ccd74e5de02567488cae29abe196cba, type: 3}
+  - {fileID: -1155302655383125035, guid: 7ccd74e5de02567488cae29abe196cba, type: 3}
+  - {fileID: -1155302655383125035, guid: 7ccd74e5de02567488cae29abe196cba, type: 3}
+  - {fileID: -1155302655383125035, guid: 7ccd74e5de02567488cae29abe196cba, type: 3}
+  sideWalls: {fileID: 21300000, guid: 6e94c21225b00064abef054db615279e, type: 3}
+  groundSprite: {fileID: 21300000, guid: 42a6cd5fb4c161746b45dceadf2ec9d9, type: 3}
+  barrierSprite: {fileID: 21300000, guid: 749829ef983dddc4ab8ed4a444bf445d, type: 3}
+  topSprite: {fileID: 21300000, guid: 2abc53017599bb041bbd006da6933c01, type: 3}

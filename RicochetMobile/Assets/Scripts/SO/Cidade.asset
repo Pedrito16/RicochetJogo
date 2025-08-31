@@ -13,19 +13,19 @@ MonoBehaviour:
   m_Name: Cidade
   m_EditorClassIdentifier: 
   sideDecorationsSprites:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  sideWalls: {fileID: 0}
-  groundSprite: {fileID: 0}
-  barrierSprite: {fileID: 0}
-  topSprite: {fileID: 0}
+  - {fileID: 3904910703783630444, guid: 63f3acb5022bfee4181d499e24090d1c, type: 3}
+  - {fileID: 3904910703783630444, guid: 63f3acb5022bfee4181d499e24090d1c, type: 3}
+  - {fileID: 8424052553405178176, guid: 63f3acb5022bfee4181d499e24090d1c, type: 3}
+  - {fileID: -2959251067494380054, guid: 63f3acb5022bfee4181d499e24090d1c, type: 3}
+  - {fileID: 872856533832588043, guid: 63f3acb5022bfee4181d499e24090d1c, type: 3}
+  - {fileID: -5910609368239783645, guid: 63f3acb5022bfee4181d499e24090d1c, type: 3}
+  - {fileID: -5910609368239783645, guid: 63f3acb5022bfee4181d499e24090d1c, type: 3}
+  - {fileID: 3904910703783630444, guid: 63f3acb5022bfee4181d499e24090d1c, type: 3}
+  - {fileID: 8424052553405178176, guid: 63f3acb5022bfee4181d499e24090d1c, type: 3}
+  - {fileID: -2959251067494380054, guid: 63f3acb5022bfee4181d499e24090d1c, type: 3}
+  - {fileID: 8424052553405178176, guid: 63f3acb5022bfee4181d499e24090d1c, type: 3}
+  - {fileID: -5910609368239783645, guid: 63f3acb5022bfee4181d499e24090d1c, type: 3}
+  sideWalls: {fileID: 4844206981205899339, guid: 96f99d3e72ca64848b9381871c9455a9, type: 3}
+  groundSprite: {fileID: 21300000, guid: aa3008b1a9d7f054aa36dc79d5aafd1a, type: 3}
+  barrierSprite: {fileID: -7521903634545404250, guid: 405227572f39b9d46816dd8ad5785c78, type: 3}
+  topSprite: {fileID: 21300000, guid: dfd06c3a13b795b4782b070b2a1929e8, type: 3}

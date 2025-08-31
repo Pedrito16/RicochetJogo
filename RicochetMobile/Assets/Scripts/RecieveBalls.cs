@@ -40,7 +40,7 @@ public class RecieveBalls : MonoBehaviour
         onPlayerTurnEnd?.Invoke();
 
         StartCoroutine(MovePlayerToPos());
-        GameManager.instance.OnChange?.Invoke();
+        GameManager.instance.OnStateChange?.Invoke();
 
         ballsQuantity = dispararBolas.quantidadeBolasMax;
         ballThatIndicatesWhereToMove.SetActive(false);

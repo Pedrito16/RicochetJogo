@@ -4792,6 +4792,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1855519929}
   - component: {fileID: 1855519928}
+  - component: {fileID: 1855519930}
   m_Layer: 0
   m_Name: CenarioLoader
   m_TagString: Untagged
@@ -4860,6 +4861,23 @@ Transform:
   - {fileID: 969544101}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1855519930
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1855519927}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75257447ba2219e48bf55eec94429da9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maps:
+  - {fileID: 11400000, guid: 5ae88cb2085b51041b4d87d62412aeb1, type: 2}
+  - {fileID: 11400000, guid: 7a2b157d7320d884e97793b8833a3cef, type: 2}
+  currentMapIndex: 0
+  currentTurn: 0
 --- !u!1 &1909750452
 GameObject:
   m_ObjectHideFlags: 0

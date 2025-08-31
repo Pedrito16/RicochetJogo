@@ -15,9 +15,14 @@ public class CenarioLoader : MonoBehaviour
     [SerializeField] float growSize;
 
     [SerializeField] CenarioSO cenario;
+    public static CenarioLoader instance;
+    private void Awake()
+    {
+        if (instance == null) instance = this;
+    }
     void Start()
     {
-        LoadCenario(cenario);
+        //LoadCenario(cenario);
     }
 
     void Update()

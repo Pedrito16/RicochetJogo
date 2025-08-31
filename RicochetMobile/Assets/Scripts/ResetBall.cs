@@ -44,7 +44,7 @@ public class ResetBall : MonoBehaviour
         }
 
         RecieveBalls recieveBalls = RecieveBalls.instance;
-        recieveBalls.ballsQuantity = 0;
         recieveBalls.PassTurn();
+        recieveBalls.ballsQuantity = 0;
     }
 }

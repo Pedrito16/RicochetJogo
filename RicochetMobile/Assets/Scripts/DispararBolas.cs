@@ -48,7 +48,7 @@ public class DispararBolas : MonoBehaviour
     {
         canShoot = true;
         lineCircle.gameObject.SetActive(false);
-        GameManager.instance.OnChange += OnEnemyTurnStart;
+        GameManager.instance.OnStateChange += OnEnemyTurnStart;
     }
     void OnEnemyTurnStart()
     {

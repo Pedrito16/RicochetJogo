@@ -40,7 +40,7 @@ public class CenarioLoader : MonoBehaviour
          
         StartCoroutine(GrowShrinkEffect(new Transform[] {topDecoration}, new Sprite[] {scenario.topSprite}));
 
-        StartCoroutine(SwitchSpriteNoEffect(grounds, new Sprite[] { scenario.groundSprite }));
+        StartCoroutine(SwitchSpriteNoEffect(grounds, scenario.groundSprite));
         StartCoroutine(GrowShrinkEffect(barriers, new Sprite[] { scenario.barrierSprite })); //convertendo para array
         //StartCoroutine(CheckIfEndedLoading());
     }

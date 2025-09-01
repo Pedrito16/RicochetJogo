@@ -8,7 +8,7 @@ public class CenarioSO : ScriptableObject
 
     public Sprite sideWalls;
 
-    public Sprite groundSprite;
+    public Sprite[] groundSprite;
 
     public Sprite barrierSprite;
 

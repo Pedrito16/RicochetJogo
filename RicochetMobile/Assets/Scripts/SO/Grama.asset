@@ -26,7 +26,8 @@ MonoBehaviour:
   - {fileID: -1155302655383125035, guid: 7ccd74e5de02567488cae29abe196cba, type: 3}
   - {fileID: -1155302655383125035, guid: 7ccd74e5de02567488cae29abe196cba, type: 3}
   sideWalls: {fileID: 21300000, guid: 6e94c21225b00064abef054db615279e, type: 3}
-  groundSprite: {fileID: 21300000, guid: 42a6cd5fb4c161746b45dceadf2ec9d9, type: 3}
+  groundSprite:
+  - {fileID: 21300000, guid: 42a6cd5fb4c161746b45dceadf2ec9d9, type: 3}
   barrierSprite: {fileID: 21300000, guid: 749829ef983dddc4ab8ed4a444bf445d, type: 3}
   topSprite: {fileID: 21300000, guid: 2abc53017599bb041bbd006da6933c01, type: 3}
   enemiesToSpawn:

@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bce712bc943baf44eb651c1f35a67071, type: 3}
+  m_Name: Praia
+  m_EditorClassIdentifier: 
+  sideDecorationsSprites:
+  - {fileID: -2556956474621596019, guid: 7ccd74e5de02567488cae29abe196cba, type: 3}
+  - {fileID: -2556956474621596019, guid: 7ccd74e5de02567488cae29abe196cba, type: 3}
+  - {fileID: -2556956474621596019, guid: 7ccd74e5de02567488cae29abe196cba, type: 3}
+  - {fileID: -2556956474621596019, guid: 7ccd74e5de02567488cae29abe196cba, type: 3}
+  - {fileID: -2556956474621596019, guid: 7ccd74e5de02567488cae29abe196cba, type: 3}
+  - {fileID: -2556956474621596019, guid: 7ccd74e5de02567488cae29abe196cba, type: 3}
+  - {fileID: -2556956474621596019, guid: 7ccd74e5de02567488cae29abe196cba, type: 3}
+  - {fileID: -2556956474621596019, guid: 7ccd74e5de02567488cae29abe196cba, type: 3}
+  - {fileID: -2556956474621596019, guid: 7ccd74e5de02567488cae29abe196cba, type: 3}
+  - {fileID: -2556956474621596019, guid: 7ccd74e5de02567488cae29abe196cba, type: 3}
+  - {fileID: -2556956474621596019, guid: 7ccd74e5de02567488cae29abe196cba, type: 3}
+  - {fileID: -2556956474621596019, guid: 7ccd74e5de02567488cae29abe196cba, type: 3}
+  sideWalls: {fileID: 21300000, guid: bd5f7fd79f2e73944b17bf2758d23d83, type: 3}
+  groundSprite:
+  - {fileID: -5770199197463646300, guid: 2b32d208ee8a5b147a79b062dc917d21, type: 3}
+  - {fileID: -300945927, guid: 2b32d208ee8a5b147a79b062dc917d21, type: 3}
+  - {fileID: -1405656609, guid: 2b32d208ee8a5b147a79b062dc917d21, type: 3}
+  barrierSprite: {fileID: 21300000, guid: 56c74f134e253474186be84a9ffe3295, type: 3}
+  topSprite: {fileID: 21300000, guid: 9e9f6f0a3200e664da534edbc0d3dea1, type: 3}
+  enemiesToSpawn: []

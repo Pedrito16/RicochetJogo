@@ -82,17 +82,12 @@ public class CenarioLoader : MonoBehaviour
         for(int i = 0; i < array.Length; i++)
         {
             SpriteRenderer sideDecoration = array[i].GetComponent<SpriteRenderer>();
-            Sprite sprite = sideDecoration.sprite;
-            print("trocando sprite para: " + sprite.name);
-            if (sprite == null) 
-            {
-                sideDecoration.gameObject.SetActive(false);
-            }
+            if (hasOnlyOneSprite)
+                sideDecoration.sprite = loneSprite;
             else
             {
-                if (hasOnlyOneSprite)
-                    sideDecoration.sprite = loneSprite;
-                else sideDecoration.sprite = sprite;
+                Sprite sprite = newSprites[i];
+                sideDecoration.sprite = sprite;
             }
             yield return new WaitForSeconds(0.2f);
         }

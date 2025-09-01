@@ -13,23 +13,24 @@ MonoBehaviour:
   m_Name: Praia
   m_EditorClassIdentifier: 
   sideDecorationsSprites:
-  - {fileID: -2556956474621596019, guid: 7ccd74e5de02567488cae29abe196cba, type: 3}
-  - {fileID: -2556956474621596019, guid: 7ccd74e5de02567488cae29abe196cba, type: 3}
-  - {fileID: -2556956474621596019, guid: 7ccd74e5de02567488cae29abe196cba, type: 3}
-  - {fileID: -2556956474621596019, guid: 7ccd74e5de02567488cae29abe196cba, type: 3}
-  - {fileID: -2556956474621596019, guid: 7ccd74e5de02567488cae29abe196cba, type: 3}
-  - {fileID: -2556956474621596019, guid: 7ccd74e5de02567488cae29abe196cba, type: 3}
-  - {fileID: -2556956474621596019, guid: 7ccd74e5de02567488cae29abe196cba, type: 3}
-  - {fileID: -2556956474621596019, guid: 7ccd74e5de02567488cae29abe196cba, type: 3}
-  - {fileID: -2556956474621596019, guid: 7ccd74e5de02567488cae29abe196cba, type: 3}
-  - {fileID: -2556956474621596019, guid: 7ccd74e5de02567488cae29abe196cba, type: 3}
-  - {fileID: -2556956474621596019, guid: 7ccd74e5de02567488cae29abe196cba, type: 3}
-  - {fileID: -2556956474621596019, guid: 7ccd74e5de02567488cae29abe196cba, type: 3}
-  sideWalls: {fileID: 21300000, guid: bd5f7fd79f2e73944b17bf2758d23d83, type: 3}
+  - {fileID: 21300000, guid: f98a36ece10ee1442a61a01844574d5b, type: 3}
+  - {fileID: 21300000, guid: 7115a270fc0becc43beab6505d4f67b4, type: 3}
+  - {fileID: 21300000, guid: afb3f666b2f8c9448bff6ff4384a5816, type: 3}
+  - {fileID: 21300000, guid: 7115a270fc0becc43beab6505d4f67b4, type: 3}
+  - {fileID: 21300000, guid: afb3f666b2f8c9448bff6ff4384a5816, type: 3}
+  - {fileID: 21300000, guid: 9de0079eef4b8984a93ae7482483065b, type: 3}
+  - {fileID: 21300000, guid: f98a36ece10ee1442a61a01844574d5b, type: 3}
+  - {fileID: 21300000, guid: afb3f666b2f8c9448bff6ff4384a5816, type: 3}
+  - {fileID: 21300000, guid: 7115a270fc0becc43beab6505d4f67b4, type: 3}
+  - {fileID: 21300000, guid: 7115a270fc0becc43beab6505d4f67b4, type: 3}
+  - {fileID: 21300000, guid: 9de0079eef4b8984a93ae7482483065b, type: 3}
+  - {fileID: 21300000, guid: f98a36ece10ee1442a61a01844574d5b, type: 3}
+  sideWalls: {fileID: 21300000, guid: d39c269bd19d1894b985182cca32c3e1, type: 3}
   groundSprite:
-  - {fileID: -5770199197463646300, guid: 2b32d208ee8a5b147a79b062dc917d21, type: 3}
-  - {fileID: -300945927, guid: 2b32d208ee8a5b147a79b062dc917d21, type: 3}
-  - {fileID: -1405656609, guid: 2b32d208ee8a5b147a79b062dc917d21, type: 3}
+  - {fileID: 3321008859876850688, guid: 03d022c47dde54d41919e6a66f796689, type: 3}
+  - {fileID: -1647509873, guid: 03d022c47dde54d41919e6a66f796689, type: 3}
+  - {fileID: -1351294660, guid: 03d022c47dde54d41919e6a66f796689, type: 3}
   barrierSprite: {fileID: 21300000, guid: 56c74f134e253474186be84a9ffe3295, type: 3}
-  topSprite: {fileID: 21300000, guid: 9e9f6f0a3200e664da534edbc0d3dea1, type: 3}
-  enemiesToSpawn: []
+  topSprite: {fileID: 0}
+  enemiesToSpawn:
+  - {fileID: 6574163866810343162, guid: 8b4be061acf856145853e629ab4354c8, type: 3}

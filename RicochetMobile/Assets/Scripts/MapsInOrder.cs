@@ -15,22 +15,16 @@ public class MapsInOrder : MonoBehaviour
         currentTurn += 1;
         if(currentTurn % 3 == 0)
         {
+            print("indo trocar de cenario");
             ChangeScenario();
         }
     }
     void ChangeScenario()
     {
-        currentMapIndex++;
-        CenarioLoader loader = CenarioLoader.instance;
-        if(currentMapIndex < maps.Length - 1)
-        {
-            loader.LoadCenario(maps[currentMapIndex]);
+        if (currentMapIndex + 1 >= maps.Length) currentMapIndex = 0;
+        else currentMapIndex++;
 
-        }
-        else if(currentMapIndex > maps.Length - 1)
-        {
-            currentMapIndex = 0;
-            loader.LoadCenario(maps[currentMapIndex]);
-        }
+        CenarioLoader loader = CenarioLoader.instance;
+        loader.LoadCenario(maps[currentMapIndex]);
     }
 }

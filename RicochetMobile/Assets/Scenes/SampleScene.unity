@@ -708,7 +708,7 @@ BoxCollider2D:
     m_Bits: 4294967295
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_CompositeOperation: 1
+  m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0.000000029802322, y: 0}
   m_SpriteTilingProperty:
@@ -929,7 +929,7 @@ BoxCollider2D:
     m_Bits: 4294967295
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_CompositeOperation: 1
+  m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
@@ -1293,7 +1293,7 @@ BoxCollider2D:
     m_Bits: 4294967295
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_CompositeOperation: 1
+  m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
@@ -1717,7 +1717,7 @@ BoxCollider2D:
     m_Bits: 4294967295
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_CompositeOperation: 1
+  m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0.0012913346}
   m_SpriteTilingProperty:
@@ -1886,7 +1886,7 @@ BoxCollider2D:
     m_Bits: 4294967295
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_CompositeOperation: 1
+  m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
@@ -2455,7 +2455,7 @@ BoxCollider2D:
     m_Bits: 4294967295
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_CompositeOperation: 1
+  m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
@@ -2595,90 +2595,10 @@ CompositeCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_GeometryType: 1
+  m_GeometryType: 0
   m_GenerationType: 0
   m_EdgeRadius: 0
   m_ColliderPaths:
-  - m_Collider: {fileID: 322853548}
-    m_ColliderPaths:
-    - - X: 14722036
-        Y: 53505640
-      - X: -9522036
-        Y: 53505640
-      - X: -9522036
-        Y: 24592362
-      - X: 14722036
-        Y: 24592362
-  - m_Collider: {fileID: 488710856}
-    m_ColliderPaths:
-    - - X: -53372284
-        Y: 53505640
-      - X: -77862512
-        Y: 53505640
-      - X: -77862512
-        Y: 24592362
-      - X: -53372284
-        Y: 24592362
-  - m_Collider: {fileID: 755389235}
-    m_ColliderPaths:
-    - - X: 14722039
-        Y: -2868687
-      - X: -9522034
-        Y: -2868687
-      - X: -9522034
-        Y: -31856642
-      - X: 14722039
-        Y: -31856642
-  - m_Collider: {fileID: 811002965}
-    m_ColliderPaths:
-    - - X: -53615964
-        Y: -30943360
-      - X: -77860032
-        Y: -30943360
-      - X: -77860032
-        Y: -59856640
-      - X: -53615964
-        Y: -59856640
-  - m_Collider: {fileID: 998093649}
-    m_ColliderPaths:
-    - - X: -53372284
-        Y: 25456640
-      - X: -77862512
-        Y: 25456640
-      - X: -77862512
-        Y: -3456640
-      - X: -53372284
-        Y: -3456640
-  - m_Collider: {fileID: 1629885021}
-    m_ColliderPaths:
-    - - X: 14722036
-        Y: 25456640
-      - X: -9522036
-        Y: 25456640
-      - X: -9522036
-        Y: -2933936
-      - X: 14722036
-        Y: -2933936
-  - m_Collider: {fileID: 1989757361}
-    m_ColliderPaths:
-    - - X: 14722036
-        Y: -30943360
-      - X: -9522036
-        Y: -30943360
-      - X: -9522036
-        Y: -59856640
-      - X: 14722036
-        Y: -59856640
-  - m_Collider: {fileID: 225840010}
-    m_ColliderPaths:
-    - - X: -53372284
-        Y: -2943360
-      - X: -77862512
-        Y: -2943360
-      - X: -77862512
-        Y: -31856642
-      - X: -53372284
-        Y: -31856642
   - m_Collider: {fileID: 1837117018}
     m_ColliderPaths:
     - - X: -9327528
@@ -2691,20 +2611,10 @@ CompositeCollider2D:
         Y: 41039812
   m_CompositePaths:
     m_Paths:
-    - - {x: -5.3616257, y: -5.985664}
-      - {x: -5.3615675, y: -3.1856642}
-      - {x: -5.3372283, y: -3.1856349}
-      - {x: -5.337199, y: 4.103981}
-      - {x: -0.95220363, y: 4.103952}
-      - {x: -0.9521743, y: -5.985664}
-      - {x: 1.4722036, y: -5.985635}
-      - {x: 1.4721743, y: 5.350564}
-      - {x: -0.9327528, y: 5.3505936}
+    - - {x: -0.9327821, y: 4.103981}
       - {x: -0.9327821, y: 6.8514185}
       - {x: -5.3490467, y: 6.851389}
-      - {x: -5.3490763, y: 5.350564}
-      - {x: -7.786251, y: 5.350535}
-      - {x: -7.7859735, y: -5.985664}
+      - {x: -5.3490176, y: 4.103981}
   m_VertexDistance: 0.0005
   m_OffsetDistance: 0.00005
   m_UseDelaunayMesh: 0
@@ -3432,19 +3342,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1269091138}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1269091141}
-        m_TargetAssemblyTypeName: ResetBall, Assembly-CSharp
-        m_MethodName: PassRound
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1269091141
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4196,7 +4094,7 @@ BoxCollider2D:
     m_Bits: 4294967295
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_CompositeOperation: 1
+  m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0.009039164}
   m_SpriteTilingProperty:
@@ -4876,7 +4774,7 @@ MonoBehaviour:
   maps:
   - {fileID: 11400000, guid: 5ae88cb2085b51041b4d87d62412aeb1, type: 2}
   - {fileID: 11400000, guid: 7a2b157d7320d884e97793b8833a3cef, type: 2}
-  currentMapIndex: 0
+  currentMapIndex: -1
   currentTurn: 0
 --- !u!1 &1909750452
 GameObject:
@@ -5178,7 +5076,7 @@ BoxCollider2D:
     m_Bits: 4294967295
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_CompositeOperation: 1
+  m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:

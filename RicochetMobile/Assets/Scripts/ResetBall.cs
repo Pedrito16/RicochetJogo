@@ -10,7 +10,7 @@ public class ResetBall : MonoBehaviour
     void Start()
     {
         bolaIcon = GetComponentInChildren<CanvasGroup>();
-        resetButton.onClick.AddListener(() => PassRound());
+        resetButton.onClick.AddListener(PassRound);
       
 
         ballsList = new List<Ball>();
@@ -45,6 +45,5 @@ public class ResetBall : MonoBehaviour
 
         RecieveBalls recieveBalls = RecieveBalls.instance;
         recieveBalls.PassTurn();
-        recieveBalls.ballsQuantity = 0;
     }
 }

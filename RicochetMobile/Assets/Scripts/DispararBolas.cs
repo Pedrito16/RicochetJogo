@@ -19,7 +19,7 @@ public class DispararBolas : MonoBehaviour
     public bool allBallsShot = false;
     [SerializeField] bool alreadyShooted;
     [SerializeField] bool isOnBounds;
-    [SerializeField] bool canShoot;
+    public bool canShoot;
 
     // variaveis fora do console
     public static DispararBolas instance;

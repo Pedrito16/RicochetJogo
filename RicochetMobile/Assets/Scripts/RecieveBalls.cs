@@ -33,6 +33,8 @@ public class RecieveBalls : MonoBehaviour
     }
     public void PassTurn()
     {
+        ballsQuantity = 0;
+        print("passando turno");
         GameManager.state = GameState.MovementTurn;
         GameManager.howManyRoudsPassed += 1;
         ballThatIndicatesWhereToMove.SetActive(false);

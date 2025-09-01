@@ -35,8 +35,8 @@ public class RecieveBalls : MonoBehaviour
     {
         ballsQuantity = 0;
         print("passando turno");
-        GameManager.state = GameState.MovementTurn;
-        GameManager.howManyRoudsPassed += 1;
+        GameManager.instance.state = GameState.MovementTurn;
+        GameManager.instance.howManyRoudsPassed += 1;
         ballThatIndicatesWhereToMove.SetActive(false);
 
         onPlayerTurnEnd?.Invoke();

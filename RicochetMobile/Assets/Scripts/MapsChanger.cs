@@ -1,11 +1,17 @@
 using UnityEngine;
 
-public class MapsInOrder : MonoBehaviour
+public class MapsChanger : MonoBehaviour
 {
     [SerializeField] CenarioSO[] maps;
     [SerializeField] int currentMapIndex;
     [SerializeField] int currentTurn;
-
+    public delegate void OnMapChange(CenarioSO cenario);
+    public OnMapChange OnMapSwitch;
+    public static MapsChanger instance;
+    private void Awake()
+    {
+        if (instance == null) instance = this;
+    }
     private void Start()
     {
         RecieveBalls.instance.onPlayerTurnEnd += CountTurns;
@@ -26,5 +32,6 @@ public class MapsInOrder : MonoBehaviour
 
         CenarioLoader loader = CenarioLoader.instance;
         loader.LoadCenario(maps[currentMapIndex]);
+        OnMapSwitch?.Invoke(maps[currentMapIndex]);
     }
 }

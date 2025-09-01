@@ -19,7 +19,7 @@ public class DeathScreen : MonoBehaviour
     }
     void Die()
     {
-        scoreText.text = "Rodadas sobrevividas: " + GameManager.howManyRoudsPassed.ToString();
+        scoreText.text = "Rodadas sobrevividas: " + GameManager.instance.howManyRoudsPassed.ToString();
         Time.timeScale = 0f;
         deathPanel.SetActive(true);
     }
@@ -27,7 +27,8 @@ public class DeathScreen : MonoBehaviour
     {
         deathPanel.SetActive(false);
         isDead = false;
-        GameManager.howManyRoudsPassed = 0;
+        ScoreController.instance.Save();
+        GameManager.instance.howManyRoudsPassed = 0;
         Time.timeScale = 1f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }

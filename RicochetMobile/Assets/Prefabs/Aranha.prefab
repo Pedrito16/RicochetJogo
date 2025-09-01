@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 3624493523607257502}
   - component: {fileID: 663518859676484108}
   m_Layer: 0
-  m_Name: Enemy
+  m_Name: Aranha
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -80,8 +80,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: b83e845681f6fad4ea35107f695c1e53, type: 3}
+  m_SortingOrder: 1
+  m_Sprite: {fileID: -7177961782640799010, guid: 4528d2728009b7947b6abb7ed6093283, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -162,7 +162,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 880c546efafb7854aa30a549fbbd905e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tilesDistance: 1
+  tilesDistance: 2
   velocidade: 2
   roundsToWin: 7
   howManyRoundsSurvived: 1
@@ -179,7 +179,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d8e98e8264278249b1d1b98f33f52c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  life: 7
+  life: 3
 --- !u!60 &663518859676484108
 PolygonCollider2D:
   m_ObjectHideFlags: 0

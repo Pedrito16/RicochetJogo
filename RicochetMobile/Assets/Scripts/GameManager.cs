@@ -7,8 +7,8 @@ public enum GameState
 }
 public class GameManager : MonoBehaviour
 {
-    public static GameState state;
-    public static int howManyRoudsPassed;
+    public GameState state;
+    public int howManyRoudsPassed;
     [SerializeField] GameObject destroyProjectilesObject;
     public delegate void OnGameStateChange();
     public OnGameStateChange OnStateChange;

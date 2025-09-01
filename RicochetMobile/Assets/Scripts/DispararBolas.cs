@@ -60,7 +60,7 @@ public class DispararBolas : MonoBehaviour
     }
     void Update()
     {
-        if(GameManager.state == GameState.PlayerTurn)
+        if(GameManager.instance.state == GameState.PlayerTurn)
         {
             if (Input.GetMouseButton(0) && canShoot && !alreadyShooted)
             {

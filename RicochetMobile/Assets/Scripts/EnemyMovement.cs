@@ -4,7 +4,7 @@ using System.Collections.Generic;
 public class EnemyMovement : EnemyStatus
 {
     [Range(1, 5)]
-    [SerializeField] int tilesDistance = 1;
+    public int tilesDistance = 1;
 
     [SerializeField] float velocidade;
     [SerializeField] int roundsToWin = 8;

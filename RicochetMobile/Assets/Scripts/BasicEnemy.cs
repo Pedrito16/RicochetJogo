@@ -4,6 +4,9 @@ using UnityEngine;
 public class BasicEnemy : EnemyStatus
 {
     [SerializeField] int life;
+    Sprite originalSprite;
+    Sprite takeDamageSprite;
+
     EnemyMovement movementScript;
     private void Awake()
     {
@@ -21,6 +24,11 @@ public class BasicEnemy : EnemyStatus
     void Update()
     {
         life = Vida;
+    }
+    public void SetSprites(Sprite normalSprite, Sprite damagedSprite)
+    {
+        originalSprite = normalSprite;
+        takeDamageSprite = damagedSprite;
     }
     public override void TakeDamage(int damage)
     {

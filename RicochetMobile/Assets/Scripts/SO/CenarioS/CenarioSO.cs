@@ -15,5 +15,5 @@ public class CenarioSO : ScriptableObject
     public Sprite topSprite;
 
     [Header("Configurações cenario")]
-    public List<GameObject> enemiesToSpawn = new List<GameObject>();
+    public List<Inimigos> enemiesToSpawn = new List<Inimigos>();
 }

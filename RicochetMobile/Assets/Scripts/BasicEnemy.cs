@@ -3,17 +3,23 @@ using UnityEngine;
 
 public class BasicEnemy : EnemyStatus
 {
-    [SerializeField] int life;
+    public EnemyComponents components;
+
     Sprite originalSprite;
     Sprite takeDamageSprite;
 
+    SpriteRenderer spriteRenderer;
     EnemyMovement movementScript;
+    BarraDeVida lifeBar;
     private void Awake()
     {
+        lifeBar = GetComponent<BarraDeVida>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
         movementScript = GetComponent<EnemyMovement>();
     }
     private void Start()
     {
+        lifeBar.Setup(Vida + 1);
         Começar();
     }
     protected override void Começar()
@@ -23,21 +29,32 @@ public class BasicEnemy : EnemyStatus
 
     void Update()
     {
-        life = Vida;
+       
     }
     public void SetSprites(Sprite normalSprite, Sprite damagedSprite)
     {
         originalSprite = normalSprite;
         takeDamageSprite = damagedSprite;
+
+        spriteRenderer.sprite = normalSprite;
     }
     public override void TakeDamage(int damage)
     {
         Vida -= damage;
+        lifeBar.TomarDano(Vida);
+
         if (Vida <= 0)
         {
-            RecieveBalls.instance.onPlayerTurnEnd -= movementScript.Move;
-            Destroy(gameObject);
+            print("ai ai to morrendo me ajuda");
+            OnDie();
         }
+    }
+    void OnDie()
+    {
+        RecieveBalls.instance.onPlayerTurnEnd -= movementScript.Move;
+        gameObject.SetActive(false);
+        lifeBar.ResetValues();
+        EnemyConverter.instance.enemyPool.Enqueue(components);
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {

@@ -352,6 +352,7 @@ GameObject:
   m_Component:
   - component: {fileID: 52596656}
   - component: {fileID: 52596655}
+  - component: {fileID: 52596657}
   m_Layer: 0
   m_Name: SpawnEnemies
   m_TagString: Untagged
@@ -372,7 +373,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemiesPrefabs:
-  - {fileID: 6574163866810343162, guid: 8b4be061acf856145853e629ab4354c8, type: 3}
+  - {fileID: 11400000, guid: 957be464663415e49bf4f8ef062062df, type: 2}
   initialSpawnPosition: {fileID: 52596656}
   spawnChance: 10
   "espa\xE7amento": 0.85
@@ -392,6 +393,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &52596657
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 52596654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4490f952bd61f214ab2963164ebd6a10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  originalObject: {fileID: 6574163866810343162, guid: 8b4be061acf856145853e629ab4354c8, type: 3}
+  poolSize: 35
 --- !u!1 &62636056
 GameObject:
   m_ObjectHideFlags: 0

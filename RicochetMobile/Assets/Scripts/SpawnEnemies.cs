@@ -4,7 +4,7 @@ using System.Collections;
 
 public class SpawnEnemies : MonoBehaviour
 {
-    [SerializeField] GameObject[] enemiesPrefabs;
+    [SerializeField] Inimigos[] enemiesPrefabs;
     [SerializeField] Transform initialSpawnPosition;
     [SerializeField] int spawnChance;
     [SerializeField] float espaçamento;
@@ -12,13 +12,14 @@ public class SpawnEnemies : MonoBehaviour
 
     [Header("Enemy Info")]
 
-    EnemyManager enemyManager;
+    EnemyConverter converter;
     private void Awake()
     {
         
     }
     void Start()
     {
+        converter = EnemyConverter.instance;
         MapsChanger.instance.OnMapSwitch += ChangeEnemies;
         RecieveBalls.instance.onPlayerTurnEnd += InstantiateNextRow;
         RecieveBalls.instance.onPlayerTurnEnd += UpgradeEnemies;
@@ -41,7 +42,8 @@ public class SpawnEnemies : MonoBehaviour
             if (numeroAleatorio <= 5)
             {
                 int inimigoAleatorio = Random.Range(0, enemiesPrefabs.Length);
-                Instantiate(enemiesPrefabs[inimigoAleatorio], spawnPos, enemiesPrefabs[0].transform.rotation);
+                EnemyComponents enemy = converter.GetEnemy(enemiesPrefabs[inimigoAleatorio]);
+                enemy.enemy.transform.position = spawnPos; 
             }
         }
         yield return new WaitForSeconds(0.2f);

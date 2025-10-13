@@ -3,6 +3,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Inimigos", menuName = "Scriptable Objects/Inimigos")]
 public class Inimigos : ScriptableObject
 {
+    public string Name;
     public int life;
     [HideInInspector] public int roundsToWin = 7;
 

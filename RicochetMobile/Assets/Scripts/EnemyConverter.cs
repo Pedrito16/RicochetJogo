@@ -1,41 +1,54 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+[System.Serializable]
+public class EnemyComponents
+{
+    public GameObject enemy;
+    public EnemyMovement movementScript;
+    public BasicEnemy enemyLife;
+
+    public EnemyComponents(GameObject enemy, EnemyMovement movementScript, BasicEnemy enemyLife)
+    {
+        this.enemy = enemy;
+        this.movementScript = movementScript;
+        this.enemyLife = enemyLife;
+        this.enemyLife.components = this;
+    }
+}
 public class EnemyConverter : MonoBehaviour
 {
     [SerializeField] GameObject originalObject;
     [SerializeField] int poolSize = 35;
-    [SerializeField] Queue<GameObject> enemyPool = new Queue<GameObject>();
 
-    [SerializeField] Queue<EnemyMovement> enemyMovementScript = new Queue<EnemyMovement>();
+    [HideInInspector] public Queue<EnemyComponents> enemyPool = new Queue<EnemyComponents>();
+    public static EnemyConverter instance;
+    private void Awake()
+    {
+        instance = this;
+        for (int i = 0; i < poolSize; i++)
+        {
+            GameObject obj = Instantiate(originalObject);
+            EnemyComponents enemyComponent = new EnemyComponents(obj, obj.GetComponent<EnemyMovement>(), obj.GetComponent<BasicEnemy>());
 
-    [SerializeField] Queue<BasicEnemy> enemyLife = new Queue<BasicEnemy>();
+            obj.SetActive(false);
+            enemyPool.Enqueue(enemyComponent);
+        }
+    }
 
     void Start()
     {
-        for(int i = 0; i < poolSize; i++)
-        {
-            GameObject obj = Instantiate(originalObject);
-            EnemyMovement enemyMovement = obj.GetComponent<EnemyMovement>();
-            BasicEnemy enemyStatus = obj.GetComponent<BasicEnemy>();
-
-            obj.SetActive(false);
-
-            enemyPool.Enqueue(obj);
-            enemyMovementScript.Enqueue(enemyMovement);
-            enemyLife.Enqueue(enemyStatus);
-        }
+        
     }
-    public void SetEnemy(Inimigos newEnemy)
+    public EnemyComponents GetEnemy(Inimigos newEnemy)
     {
-        GameObject enemy = enemyPool.Dequeue();
-        EnemyMovement movementScript = enemyMovementScript.Dequeue();
-        BasicEnemy enemyStatus = enemyLife.Dequeue();
+        EnemyComponents enemyComponent = enemyPool.Dequeue();
 
-        enemyStatus.Vida = newEnemy.life;   
-        movementScript.tilesDistance = newEnemy.tilesDistance;
-        enemyStatus.SetSprites(newEnemy.normalSprite, newEnemy.damagedSprite);
+        enemyComponent.enemyLife.Vida = newEnemy.life;   
+        enemyComponent.movementScript.tilesDistance = newEnemy.tilesDistance;
+        enemyComponent.enemyLife.SetSprites(newEnemy.normalSprite, newEnemy.damagedSprite);
 
-        enemy.SetActive(true);
+        enemyComponent.enemy.SetActive(true);
+        return enemyComponent;
     }
 }

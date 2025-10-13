@@ -89,7 +89,6 @@ public class DispararBolas : MonoBehaviour
         {
             lineRenderer.enabled = true;
             lineCircle.transform.position = mousePos;
-            print("Correto");
             canShoot = true;
             isOnBounds = true;
             lineCircle.gameObject.SetActive(true);

@@ -52,7 +52,8 @@ public class SpawnEnemies : MonoBehaviour
     void UpgradeEnemies()
     {
         int numeroDeVidasAdicionais = Mathf.FloorToInt(GameManager.instance.howManyRoudsPassed / 2);
-        EnemyStatus.vidaBase = 6 + numeroDeVidasAdicionais;
+        EnemyStatus.vidaBase += numeroDeVidasAdicionais;
         print("aumentando vida para:" + EnemyStatus.vidaBase.ToString());
+
     }
 }

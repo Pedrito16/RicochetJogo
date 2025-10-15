@@ -44,8 +44,8 @@ public class EnemyConverter : MonoBehaviour
     {
         EnemyComponents enemyComponent = enemyPool.Dequeue();
 
-        enemyComponent.enemyLife.Vida = newEnemy.life;   
         enemyComponent.movementScript.tilesDistance = newEnemy.tilesDistance;
+        enemyComponent.enemyLife.Vida = newEnemy.life;
         enemyComponent.enemyLife.SetSprites(newEnemy.normalSprite, newEnemy.damagedSprite);
 
         enemyComponent.enemy.SetActive(true);

@@ -10,7 +10,7 @@ public class BasicEnemy : EnemyStatus
 
     SpriteRenderer spriteRenderer;
     EnemyMovement movementScript;
-    BarraDeVida lifeBar;
+    [SerializeField] BarraDeVida lifeBar;
     private void Awake()
     {
         lifeBar = GetComponent<BarraDeVida>();
@@ -19,7 +19,6 @@ public class BasicEnemy : EnemyStatus
     }
     private void Start()
     {
-        lifeBar.Setup(Vida + 1);
         Começar();
     }
     protected override void Começar()
@@ -37,6 +36,7 @@ public class BasicEnemy : EnemyStatus
         takeDamageSprite = damagedSprite;
 
         spriteRenderer.sprite = normalSprite;
+        lifeBar.Setup(vidaBase);
     }
     public override void TakeDamage(int damage)
     {

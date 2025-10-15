@@ -19,6 +19,7 @@ public class BarraDeVida : MonoBehaviour
     }
     public void ResetValues()
     {
+        vidaTotal = 0;
         vidaVermelha.fillAmount = 1;
         vidaLaranja.fillAmount = 1;
     }
@@ -45,6 +46,6 @@ public class BarraDeVida : MonoBehaviour
         //Desse jeito está funcionando, mas PRECISA ter apenas 1 IEnumerator de lerp rolando, o StopAllCoroutines faz isso por mim só pro Lerp ser genérico
 
         vidaVermelha.fillAmount = ConverterDanoParaFill(currentLife);
-        StartCoroutine(MathLerp(vidaLaranja.fillAmount, vidaVermelha.fillAmount, 1, v => vidaLaranja.fillAmount = v));
+        StartCoroutine(MathLerp(vidaLaranja.fillAmount, vidaVermelha.fillAmount, 0.5f, v => vidaLaranja.fillAmount = v));
     }
 }

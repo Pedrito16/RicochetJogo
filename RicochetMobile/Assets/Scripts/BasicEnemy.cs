@@ -19,11 +19,7 @@ public class BasicEnemy : EnemyStatus
     }
     private void Start()
     {
-        Começar();
-    }
-    protected override void Começar()
-    {
-        base.Começar();
+
     }
 
     void Update()
@@ -36,7 +32,9 @@ public class BasicEnemy : EnemyStatus
         takeDamageSprite = damagedSprite;
 
         spriteRenderer.sprite = normalSprite;
-        lifeBar.Setup(vidaBase);
+
+        RecieveBalls.instance.onPlayerTurnEnd += movementScript.Move;
+        lifeBar.Setup(Vida);
     }
     public override void TakeDamage(int damage)
     {

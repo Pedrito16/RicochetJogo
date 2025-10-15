@@ -5,8 +5,6 @@ using UnityEngine;
 public abstract class EnemyStatus : MonoBehaviour
 {
     private float distanciaMovimentação = 0.9f;
-    public static int vidaBase = 6;
-    public int vidaBaseRuntime;
     [SerializeField] private int vida;
     public static EnemyStatus instance;
 
@@ -15,10 +13,6 @@ public abstract class EnemyStatus : MonoBehaviour
     private void Awake()
     {
         
-    }
-    protected virtual void Começar()
-    {
-        Vida = vidaBase;
     }
     public virtual void TakeDamage(int damage)
     {

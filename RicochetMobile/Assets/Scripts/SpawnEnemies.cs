@@ -22,7 +22,6 @@ public class SpawnEnemies : MonoBehaviour
         converter = EnemyConverter.instance;
         MapsChanger.instance.OnMapSwitch += ChangeEnemies;
         RecieveBalls.instance.onPlayerTurnEnd += InstantiateNextRow;
-        RecieveBalls.instance.onPlayerTurnEnd += UpgradeEnemies;
         InstantiateNextRow();
     }
     void ChangeEnemies(CenarioSO cenario)
@@ -42,18 +41,15 @@ public class SpawnEnemies : MonoBehaviour
             if (numeroAleatorio <= 5)
             {
                 int inimigoAleatorio = Random.Range(0, enemiesPrefabs.Length);
-                EnemyComponents enemy = converter.GetEnemy(enemiesPrefabs[inimigoAleatorio]);
+                EnemyComponents enemy = converter.GetEnemy(enemiesPrefabs[inimigoAleatorio], GetEnemyLifeGrowth());
                 enemy.enemy.transform.position = spawnPos; 
             }
         }
         yield return new WaitForSeconds(0.2f);
         GameManager.instance.state = GameState.PlayerTurn;
     }
-    void UpgradeEnemies()
+    int GetEnemyLifeGrowth()
     {
-        int numeroDeVidasAdicionais = Mathf.FloorToInt(GameManager.instance.howManyRoudsPassed / 2);
-        EnemyStatus.vidaBase += numeroDeVidasAdicionais;
-        print("aumentando vida para:" + EnemyStatus.vidaBase.ToString());
-
+        return Mathf.FloorToInt(GameManager.instance.howManyRoudsPassed / 2);
     }
 }

@@ -9,19 +9,22 @@ public class EnemyMovement : EnemyStatus
     [SerializeField] float velocidade;
     [SerializeField] int roundsToWin = 8;
     [SerializeField] int howManyRoundsSurvived = 1;
-    public bool isReadyToGo;
-    void Start()
-    {
-        
-    }
+    public BasicEnemy enemyStats;
 
-    
-    void Update()
+    private void Awake()
+    {
+        enemyStats = GetComponent<BasicEnemy>();
+    }
+    void Start()
     {
         
     }
     public void Move()
     {
+        Abilities enemyAbility = enemyStats.currentEnemy.ability;
+
+        if (enemyAbility != null && enemyAbility.activationMethod == AbilityActivationMethod.Round_End)
+            enemyAbility?.UseAbility(enemyStats);
 
         howManyRoundsSurvived += tilesDistance;
             

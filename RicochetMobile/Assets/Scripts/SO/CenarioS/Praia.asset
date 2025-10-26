@@ -34,3 +34,4 @@ MonoBehaviour:
   topSprite: {fileID: 0}
   enemiesToSpawn:
   - {fileID: 11400000, guid: 957be464663415e49bf4f8ef062062df, type: 2}
+  - {fileID: 11400000, guid: a0eb4a0af2ea99c44a32dec45051f2a5, type: 2}

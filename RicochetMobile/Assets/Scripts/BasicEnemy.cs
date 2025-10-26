@@ -7,15 +7,17 @@ public class BasicEnemy : EnemyStatus
 
     Sprite originalSprite;
     Sprite takeDamageSprite;
-
-    SpriteRenderer spriteRenderer;
+    SpriteRenderer sr;
     EnemyMovement movementScript;
     [SerializeField] BarraDeVida lifeBar;
+    public Inimigos currentEnemy;
+
+    public bool canTakeDamage = true;
     private void Awake()
     {
+        movementScript = components.movementScript; //pega o componente previamente pego
         lifeBar = GetComponent<BarraDeVida>();
-        spriteRenderer = GetComponent<SpriteRenderer>();
-        movementScript = GetComponent<EnemyMovement>();
+        sr = GetComponent<SpriteRenderer>();
     }
     private void Start()
     {
@@ -26,18 +28,18 @@ public class BasicEnemy : EnemyStatus
     {
        
     }
-    public void SetSprites(Sprite normalSprite, Sprite damagedSprite)
+    public void Setup(Sprite normalSprite)
     {
         originalSprite = normalSprite;
-        takeDamageSprite = damagedSprite;
+        sr.sprite = normalSprite;
 
-        spriteRenderer.sprite = normalSprite;
-
-        RecieveBalls.instance.onPlayerTurnEnd += movementScript.Move;
+        RecieveBalls.instance.onPlayerTurnEnd += components.movementScript.Move;
         lifeBar.Setup(Vida);
     }
     public override void TakeDamage(int damage)
     {
+        if (!canTakeDamage) return;
+        components.animator.SetTrigger("TakeDmg");
         Vida -= damage;
         lifeBar.TomarDano(Vida);
 
@@ -49,10 +51,22 @@ public class BasicEnemy : EnemyStatus
     }
     void OnDie()
     {
-        RecieveBalls.instance.onPlayerTurnEnd -= movementScript.Move;
+        RecieveBalls.instance.onPlayerTurnEnd -= components.movementScript.Move;
         gameObject.SetActive(false);
         lifeBar.ResetValues();
         EnemyConverter.instance.enemyPool.Enqueue(components);
+    }
+    public (AnimatorControllerParameterType? type, bool found) HasParameter(string parameterName, Animator animator = null)
+    {
+        if (animator == null) animator = components.animator;
+        foreach(var parameter in animator.parameters)
+        {
+            if(parameter.name == parameterName)
+            {
+                return (parameter.type, true);
+            }
+        }
+        return (null , true);
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -61,4 +75,5 @@ public class BasicEnemy : EnemyStatus
             TakeDamage(1);
         }
     }
+
 }

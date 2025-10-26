@@ -5,15 +5,17 @@ using System.Collections.Generic;
 public class EnemyComponents
 {
     public GameObject enemy;
+    public Animator animator;
     public EnemyMovement movementScript;
     public BasicEnemy enemyLife;
 
-    public EnemyComponents(GameObject enemy, EnemyMovement movementScript, BasicEnemy enemyLife)
+    public EnemyComponents(GameObject enemy, EnemyMovement movementScript, BasicEnemy enemyLife, Animator animator)
     {
         this.enemy = enemy;
         this.movementScript = movementScript;
         this.enemyLife = enemyLife;
         this.enemyLife.components = this;
+        this.animator = animator;
     }
 }
 public class EnemyConverter : MonoBehaviour
@@ -29,7 +31,7 @@ public class EnemyConverter : MonoBehaviour
         for (int i = 0; i < poolSize; i++)
         {
             GameObject obj = Instantiate(originalObject);
-            EnemyComponents enemyComponent = new EnemyComponents(obj, obj.GetComponent<EnemyMovement>(), obj.GetComponent<BasicEnemy>());
+            EnemyComponents enemyComponent = new EnemyComponents(obj, obj.GetComponent<EnemyMovement>(), obj.GetComponent<BasicEnemy>(), obj.GetComponent<Animator>());
 
             obj.SetActive(false);
             enemyPool.Enqueue(enemyComponent);
@@ -46,7 +48,9 @@ public class EnemyConverter : MonoBehaviour
 
         enemyComponent.movementScript.tilesDistance = newEnemy.tilesDistance;
         enemyComponent.enemyLife.Vida = newEnemy.life + lifeInRounds;
-        enemyComponent.enemyLife.SetSprites(newEnemy.normalSprite, newEnemy.damagedSprite);
+        enemyComponent.enemyLife.Setup(newEnemy.mainSprite);
+        enemyComponent.enemyLife.currentEnemy = newEnemy;
+        enemyComponent.animator.runtimeAnimatorController = newEnemy.animatorController;
 
         enemyComponent.enemy.SetActive(true);
         return enemyComponent;

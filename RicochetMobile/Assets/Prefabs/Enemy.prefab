@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 3624493523607257502}
   - component: {fileID: 4730237444287081205}
   - component: {fileID: 663518859676484108}
+  - component: {fileID: -8247920519453974067}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -57,6 +58,8 @@ SpriteRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -78,6 +81,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
@@ -104,11 +108,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 880c546efafb7854aa30a549fbbd905e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  vida: 0
   tilesDistance: 1
   velocidade: 2
   roundsToWin: 7
   howManyRoundsSurvived: 1
-  isReadyToGo: 0
+  enemyStats: {fileID: 0}
 --- !u!114 &3624493523607257502
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -121,11 +126,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d8e98e8264278249b1d1b98f33f52c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  life: 5
+  vida: 0
   components:
     enemy: {fileID: 0}
     movementScript: {fileID: 0}
     enemyLife: {fileID: 0}
+  lifeBar: {fileID: 0}
+  currentEnemy: {fileID: 0}
+  canTakeDamage: 1
 --- !u!114 &4730237444287081205
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -139,7 +147,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vidaTotal: 0
-  vida: 0
   vidaVermelha: {fileID: 1317859409643231628}
   vidaLaranja: {fileID: 573467335006995220}
 --- !u!60 &663518859676484108
@@ -195,6 +202,28 @@ PolygonCollider2D:
       - {x: 0.4964527, y: -0.41841468}
       - {x: 0.5, y: 0.5}
   m_UseDelaunayMesh: 0
+--- !u!95 &-8247920519453974067
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6574163866810343162}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &1972190997451063669
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 78a1855ec9892df4d8733e4273ac55d1, type: 3}
-  m_Name: Basic
-  m_EditorClassIdentifier: 
-  Name: Jota
-  life: 5
+  m_Name: Conchinha
+  m_EditorClassIdentifier: Assembly-CSharp::Inimigos
+  Name: Conchinha
+  life: 3
   roundsToWin: 7
-  animatorController: {fileID: 9100000, guid: 38eecc4b8e0440f4dbb4eb86a893c6d7, type: 2}
-  mainSprite: {fileID: 21300000, guid: b83e845681f6fad4ea35107f695c1e53, type: 3}
+  animatorController: {fileID: 9100000, guid: f68531d038976eb468c07a2eef90d00e, type: 2}
+  mainSprite: {fileID: -7431990752826239551, guid: b881657822524894ebd89e72f4f31dc4, type: 3}
   tilesDistance: 1
-  ability: {fileID: 0}
+  ability: {fileID: 11400000, guid: e4541fe647ebd3245a65ff089be57193, type: 2}

@@ -48,8 +48,8 @@ public class EnemyConverter : MonoBehaviour
 
         enemyComponent.movementScript.tilesDistance = newEnemy.tilesDistance;
         enemyComponent.enemyLife.Vida = newEnemy.life + lifeInRounds;
-        enemyComponent.enemyLife.Setup(newEnemy.mainSprite);
         enemyComponent.enemyLife.currentEnemy = newEnemy;
+        enemyComponent.enemyLife.Setup(newEnemy.mainSprite);
         enemyComponent.animator.runtimeAnimatorController = newEnemy.animatorController;
 
         enemyComponent.enemy.SetActive(true);

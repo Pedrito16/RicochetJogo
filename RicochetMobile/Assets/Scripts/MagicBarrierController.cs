@@ -15,17 +15,10 @@ public class MagicBarrierController : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    void Start()
-    {
-        
-    }
-    void Update()
-    {
-        
-    }
-    public void SpawnBarrier(Transform enemyToSpawn)
+    public void SpawnBarrier(Transform enemyToSpawn, int barrierHealth)
     {
         GameObject barrier = Instantiate(magicBarrierPrefab, enemyToSpawn.position, Quaternion.identity);
+        barrier.GetComponent<MagicBarrierInstance>().Setup(barrierHealth);
         barrier.transform.SetParent(enemyToSpawn);
         barrier.transform.localPosition = Vector3.zero;
     }

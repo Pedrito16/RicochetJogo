@@ -78,7 +78,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 4
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
   m_Color: {r: 0.38679248, g: 0, b: 0.38087794, a: 0.6666667}
   m_FlipX: 0
@@ -102,6 +102,7 @@ GameObject:
   - component: {fileID: 2288053906617166397}
   - component: {fileID: 7790772620913937601}
   - component: {fileID: 8395554248940738759}
+  - component: {fileID: 424612266892613235}
   m_Layer: 0
   m_Name: Raio
   m_TagString: Untagged
@@ -119,7 +120,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -1.578, y: 0.157, z: 0}
-  m_LocalScale: {x: 1.9096355, y: 1.9096355, z: 1.9096355}
+  m_LocalScale: {x: 2.4328759, y: 2.4328759, z: 2.4328759}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2087828492331608275}
@@ -171,7 +172,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 4
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
   m_Color: {r: 0.6833565, g: 0, b: 0.8207547, a: 0.5019608}
   m_FlipX: 0
@@ -241,3 +242,16 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &424612266892613235
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5010548031258299614}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a60191d772d641a49b3528842468096f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MagicBarrierInstance
+  health: 0

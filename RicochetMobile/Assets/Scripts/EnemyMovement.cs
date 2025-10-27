@@ -8,7 +8,7 @@ public class EnemyMovement : EnemyStatus
 
     [SerializeField] float velocidade;
     [SerializeField] int roundsToWin = 8;
-    [SerializeField] int howManyRoundsSurvived = 1;
+    public int howManyRoundsSurvived = 1;
     public BasicEnemy enemyStats;
 
     private void Awake()

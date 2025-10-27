@@ -31,6 +31,11 @@ public class BasicEnemy : EnemyStatus
         sr.sprite = normalSprite;
 
         RecieveBalls.instance.onPlayerTurnEnd += components.movementScript.Move;
+
+        if(currentEnemy.ability != null) //se tiver habilidade e ela ativar na primeira vez
+            if (currentEnemy.ability.activationMethod == AbilityActivationMethod.FirstTime)
+                currentEnemy.ability?.UseAbility(this);
+
         lifeBar.Setup(Vida);
     }
     public override void TakeDamage(int damage)
@@ -49,6 +54,7 @@ public class BasicEnemy : EnemyStatus
     void OnDie()
     {
         RecieveBalls.instance.onPlayerTurnEnd -= components.movementScript.Move;
+        components.movementScript.howManyRoundsSurvived = 0;
         gameObject.SetActive(false);
         lifeBar.ResetValues();
         EnemyConverter.instance.enemyPool.Enqueue(components);

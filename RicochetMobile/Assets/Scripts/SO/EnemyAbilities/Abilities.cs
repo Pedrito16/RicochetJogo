@@ -19,7 +19,6 @@ public class ProtectConfig
 public enum AbilityActivationMethod
 {
     None,
-    Round_Beggining,
     Round_End
 }
 #endregion
@@ -39,11 +38,10 @@ public class Ability : Abilities
     {
         //implementar configurações de rounds
         enemyUser.canTakeDamage = !enemyUser.canTakeDamage;
-        var (type, found) = enemyUser.HasParameter("CanTakeDmg");
+        bool found = enemyUser.HasParameter("CanTakeDmg");
         if (found)
         {
             enemyUser.components.animator.SetBool("CanTakeDmg", enemyUser.canTakeDamage);
         }
-        
     }
 }

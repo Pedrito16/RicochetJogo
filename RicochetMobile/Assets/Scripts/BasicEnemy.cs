@@ -6,16 +6,13 @@ public class BasicEnemy : EnemyStatus
     public EnemyComponents components;
 
     Sprite originalSprite;
-    Sprite takeDamageSprite;
     SpriteRenderer sr;
-    EnemyMovement movementScript;
     [SerializeField] BarraDeVida lifeBar;
     public Inimigos currentEnemy;
 
     public bool canTakeDamage = true;
     private void Awake()
     {
-        movementScript = components.movementScript; //pega o componente previamente pego
         lifeBar = GetComponent<BarraDeVida>();
         sr = GetComponent<SpriteRenderer>();
     }
@@ -56,17 +53,17 @@ public class BasicEnemy : EnemyStatus
         lifeBar.ResetValues();
         EnemyConverter.instance.enemyPool.Enqueue(components);
     }
-    public (AnimatorControllerParameterType? type, bool found) HasParameter(string parameterName, Animator animator = null)
+    public bool HasParameter(string parameterName, Animator animator = null)
     {
         if (animator == null) animator = components.animator;
         foreach(var parameter in animator.parameters)
         {
             if(parameter.name == parameterName)
             {
-                return (parameter.type, true);
+                return true;
             }
         }
-        return (null , true);
+        return false;
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {

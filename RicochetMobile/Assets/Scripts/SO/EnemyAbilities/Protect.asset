@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 0}
   m_Name: Protect
   m_EditorClassIdentifier: Assembly-CSharp::Ability
-  activationMethod: 2
+  activationMethod: 1
   protectConfig:
     use: 1
     howManyRoundsProtected: 1

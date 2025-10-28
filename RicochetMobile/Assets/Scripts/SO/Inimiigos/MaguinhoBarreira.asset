@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78a1855ec9892df4d8733e4273ac55d1, type: 3}
   m_Name: MaguinhoBarreira
   m_EditorClassIdentifier: Assembly-CSharp::Inimigos
-  Name: Mago sabio
-  life: 6
+  Name: Magumelo
+  life: 4
   roundsToWin: 7
-  animatorController: {fileID: 0}
-  mainSprite: {fileID: 21300000, guid: 049767c952984014ba1eaa4056f92c66, type: 3}
+  animatorController: {fileID: 9100000, guid: 144d3c69c23f40a4e8ee3f779132c675, type: 2}
+  mainSprite: {fileID: -3299485064920910364, guid: 1665ad7b451fc5247a8ff0f3fb7b8fba, type: 3}
   tilesDistance: 1
   ability: {fileID: 11400000, guid: 9cf7cb336f8333b4b82b9bfc6cd6002d, type: 2}

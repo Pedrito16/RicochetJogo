@@ -33,7 +33,7 @@ public class MagicBarrierInstance : MonoBehaviour
     {
         animator.SetBool("BarrierActive", false);
         circleCol.enabled = false;
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(1.2f);
         Destroy(transform.root.gameObject);
     }
 }

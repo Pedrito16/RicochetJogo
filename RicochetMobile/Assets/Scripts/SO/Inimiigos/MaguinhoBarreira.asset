@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: MaguinhoBarreira
   m_EditorClassIdentifier: Assembly-CSharp::Inimigos
   Name: Magumelo
-  life: 4
+  life: 2
   roundsToWin: 7
   animatorController: {fileID: 9100000, guid: 144d3c69c23f40a4e8ee3f779132c675, type: 2}
   mainSprite: {fileID: -3299485064920910364, guid: 1665ad7b451fc5247a8ff0f3fb7b8fba, type: 3}

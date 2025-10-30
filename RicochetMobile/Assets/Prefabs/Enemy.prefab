@@ -111,7 +111,7 @@ MonoBehaviour:
   vida: 0
   tilesDistance: 1
   velocidade: 2
-  roundsToWin: 7
+  roundsToWin: 6
   howManyRoundsSurvived: 1
   enemyStats: {fileID: 0}
 --- !u!114 &3624493523607257502
@@ -129,6 +129,7 @@ MonoBehaviour:
   vida: 0
   components:
     enemy: {fileID: 0}
+    animator: {fileID: 0}
     movementScript: {fileID: 0}
     enemyLife: {fileID: 0}
   lifeBar: {fileID: 0}

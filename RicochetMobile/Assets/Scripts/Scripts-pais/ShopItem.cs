@@ -17,6 +17,7 @@ public abstract class ShopItem : MonoBehaviour
     [Header("Shop Item Info")]
     [SerializeField] int cost;
     public int amountOfTimesBought;
+    [SerializeField] int maximumAmountOfTimesCanBuy = 3;
     public ItemComponents components;
     protected virtual void Start()
     {
@@ -25,10 +26,15 @@ public abstract class ShopItem : MonoBehaviour
     }
     protected virtual void Buy()
     {
+        if (!CanBuy() || amountOfTimesBought >= maximumAmountOfTimesCanBuy)
+        {
+            return;
+        }
         PlayerStats.instance.AddMoney(-cost);
         cost = Mathf.FloorToInt(cost + cost * 0.5f);
         components.costText.text = cost.ToString();
 
+        CheckIfCanBuyAgain();
         DoAction();
         UpdateCostText();
     }
@@ -36,9 +42,25 @@ public abstract class ShopItem : MonoBehaviour
 
     public virtual void UpdateCostText()
     {
-        int money = PlayerStats.instance.currentMoney;
-        if (money >= cost) components.costText.color = Color.green;
+        if (CanBuy() || amountOfTimesBought >= maximumAmountOfTimesCanBuy) components.costText.color = Color.green;
         else components.costText.color = Color.red;
+    }
+    public virtual void CheckIfCanBuyAgain()
+    {
+        UpdateCostText();
+        if (!CanBuy() || amountOfTimesBought >= maximumAmountOfTimesCanBuy)
+        {
+            components.buyButton.interactable = false;
+        }
+        else
+        {
+            components.buyButton.interactable = true;
+        }
+    }
+     protected bool CanBuy()
+    {
+        int money = PlayerStats.instance.currentMoney;
+        return money >= cost;
     }
     #region Save and Load
     public virtual SaveUpgrades Save()
@@ -53,6 +75,7 @@ public abstract class ShopItem : MonoBehaviour
         print("loading");
         amountOfTimesBought = saveUpgrade.amountOfUpgradesBought;
         cost = saveUpgrade.cost;
+        AfterLoad();
     }
     protected virtual void AfterLoad()
     {

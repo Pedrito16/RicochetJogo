@@ -30,7 +30,7 @@ public class EnemyMovement : EnemyStatus
             
         if (howManyRoundsSurvived >= roundsToWin)
         {
-            DeathScreen.isDead = true;
+            DeathController.isDead = true;
         }
         StartCoroutine(MoveToNextTile());   
     }

@@ -7,6 +7,7 @@ public class DispararBolas : MonoBehaviour
     [Header("Essentials")]
     [SerializeField] Transform lineCircle;
     [SerializeField] LineRenderer lineRenderer;
+    public int originalQuantidadeBolasMax;
     public int quantidadeBolasMax;
     [SerializeField] GameObject bolinha;
 
@@ -33,15 +34,8 @@ public class DispararBolas : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        //pool para bolinhas
-        for (int i = 0; i < quantidadeBolasMax; i++)
-        {
-            GameObject ball = Instantiate(bolinha);
-            ball.transform.SetParent(transform, false);
-            ball.transform.position = transform.position;
-            ball.SetActive(false);
-            ballsRbList.Add(ball.GetComponent<Rigidbody2D>());
-        }
+        quantidadeBolasMax = originalQuantidadeBolasMax;
+        CreateBallPool();
         lineRenderer.enabled = false;
     }
     void Start()
@@ -49,6 +43,19 @@ public class DispararBolas : MonoBehaviour
         canShoot = true;
         lineCircle.gameObject.SetActive(false);
         GameManager.instance.OnStateChange += OnEnemyTurnStart;
+    }
+    public void CreateBallPool()
+    {
+        ballsRbList.Clear();
+        //pool para bolinhas
+        for (int i = 0; i<quantidadeBolasMax; i++)
+        {
+            GameObject ball = Instantiate(bolinha);
+            ball.transform.SetParent(transform, false);
+            ball.transform.position = transform.position;
+            ball.SetActive(false);
+            ballsRbList.Add(ball.GetComponent<Rigidbody2D>());
+        }
     }
     void OnEnemyTurnStart()
     {

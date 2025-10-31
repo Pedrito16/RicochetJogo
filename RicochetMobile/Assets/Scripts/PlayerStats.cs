@@ -34,17 +34,20 @@ public class PlayerStats : MonoBehaviour
         }
         else Destroy(gameObject);
         path = Application.persistentDataPath + path;
-        Load();
     }
     private void Start()
     {
-        DispararBolas shootBalls = DispararBolas.instance;
-        shootBalls.quantidadeBolasMax = shootBalls.quantidadeBolasMax + ballsQuantity;
+        Load();
+
     }
-    public void ApplyListeners() //ta sendo ativado pelo script de morte, porque ele re-aplica em todo inicio de jogo (ja que esse aqui é dontdestroy) ou seja, tem dependencia
+    public void OnStartGame() //ta sendo ativado pelo script de morte, porque ele re-aplica em todo inicio de jogo (ja que esse aqui é dontdestroy) ou seja, tem dependencia
     {
         RecieveBalls.instance.onPlayerTurnEnd += () => totalBallDamage = CalculateBallDamage();
-        RecieveBalls.instance.onPlayerTurnEnd += () => print("eu fui ativado mesmo assim");
+
+        DispararBolas shootBalls = DispararBolas.instance;
+        print(shootBalls.quantidadeBolasMax + " " + ballsQuantity + " Somando bolas");
+        shootBalls.quantidadeBolasMax = shootBalls.quantidadeBolasMax + ballsQuantity;
+        shootBalls.CreateBallPool();
     } 
     public void AddMoney(int amount)
     {

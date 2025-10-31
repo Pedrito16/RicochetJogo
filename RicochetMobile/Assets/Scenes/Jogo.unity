@@ -1362,7 +1362,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Recebe <color=red>0</color> de dano a cada <color=green>6</color> rodadas
+  m_text: Recebe <color=red>0</color> de dano a cada <color=green>9</color> rodadas
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1850,6 +1850,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lineCircle: {fileID: 1539044096}
   lineRenderer: {fileID: 1147494885}
+  originalQuantidadeBolasMax: 10
   quantidadeBolasMax: 10
   bolinha: {fileID: 8801434195987966181, guid: 1dc0619aec2c76c49a5d7fbe2b3e5ba9, type: 3}
   velocidadeBolas: 7
@@ -2491,6 +2492,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deathPanel: {fileID: 158667266}
   scoreText: {fileID: 182723332}
+  onDie:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &577850037
 GameObject:
   m_ObjectHideFlags: 0
@@ -3091,6 +3095,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BiggerNumber
   cost: 15
   amountOfTimesBought: 0
+  maximumAmountOfTimesCanBuy: 3
   components:
     buyButton: {fileID: 1949152783}
     descriptionText: {fileID: 2100351854}
@@ -3288,6 +3293,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ShopItem
   cost: 10
   amountOfTimesBought: 0
+  maximumAmountOfTimesCanBuy: 3
   components:
     buyButton: {fileID: 1169686740}
     descriptionText: {fileID: 263484485}
@@ -3388,11 +3394,11 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_NormalColor: {r: 0.13333334, g: 0.6784314, b: 0, a: 1}
+    m_HighlightedColor: {r: 0.13333334, g: 0.6784314, b: 0, a: 1}
+    m_PressedColor: {r: 0.11309847, g: 0.5754717, b: 0, a: 1}
+    m_SelectedColor: {r: 0.1137255, g: 0.5764706, b: 0, a: 1}
+    m_DisabledColor: {r: 0.7529412, g: 0, b: 0, a: 1}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -3424,7 +3430,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 0.13467434, g: 0.6792453, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -4865,11 +4871,11 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_NormalColor: {r: 0.13333334, g: 0.6784314, b: 0, a: 1}
+    m_HighlightedColor: {r: 0.13333334, g: 0.6784314, b: 0, a: 1}
+    m_PressedColor: {r: 0.11309847, g: 0.5754717, b: 0, a: 1}
+    m_SelectedColor: {r: 0.1137255, g: 0.5764706, b: 0, a: 1}
+    m_DisabledColor: {r: 0.7529412, g: 0, b: 0, a: 1}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -4901,7 +4907,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 0.13467434, g: 0.6792453, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -4962,6 +4968,50 @@ Transform:
   - {fileID: 306575039}
   - {fileID: 2010523333}
   m_Father: {fileID: 854867161}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1193171351
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1193171353}
+  - component: {fileID: 1193171352}
+  m_Layer: 0
+  m_Name: AddMoneyOnDIe
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1193171352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1193171351}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a7883ab9e7ca14468d3cc8310f04db5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AddMoneyOnGameEnd
+--- !u!4 &1193171353
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1193171351}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 209.418, y: 111.77919, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1225203341
 GameObject:
@@ -8072,11 +8122,11 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_NormalColor: {r: 0.13333334, g: 0.6784314, b: 0, a: 1}
+    m_HighlightedColor: {r: 0.13333334, g: 0.6784314, b: 0, a: 1}
+    m_PressedColor: {r: 0.11309847, g: 0.5754717, b: 0, a: 1}
+    m_SelectedColor: {r: 0.1137255, g: 0.5764706, b: 0, a: 1}
+    m_DisabledColor: {r: 0.754717, g: 0, b: 0, a: 1}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -8108,7 +8158,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 0.13467434, g: 0.6792453, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -8951,3 +9001,4 @@ SceneRoots:
   - {fileID: 1705803367}
   - {fileID: 99666001}
   - {fileID: 193649879}
+  - {fileID: 1193171353}

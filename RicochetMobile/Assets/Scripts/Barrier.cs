@@ -7,7 +7,7 @@ public class Barrier : MonoBehaviour
         if (collision.gameObject.CompareTag("Wall"))
         {
             print("Colidindo");
-            DeathScreen.isDead = true;
+            DeathController.isDead = true;
         }
     }
 }

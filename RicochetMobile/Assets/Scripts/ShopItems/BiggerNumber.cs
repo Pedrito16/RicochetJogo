@@ -13,15 +13,21 @@ public class BiggerNumber : ShopItem
     protected override void DoAction()
     {
         amountOfTimesBought += 1;
+        PlayerStats.instance.ballsQuantity += 1;
         UpdateDescription();
     }
     public override void UpdateCostText()
     {
         base.UpdateCostText();
     }
+    public override void CheckIfCanBuyAgain()
+    {
+        base.CheckIfCanBuyAgain();
+    }
     void UpdateDescription()
     {
-        components.descriptionText.text = $"Receba <color=green>+1</color> bola (atualmente: <color=blue> {DispararBolas.instance.quantidadeBolasMax}</color> + <color=green>{amountOfTimesBought}</color>)";
+        print("atualizando descrição");
+        components.descriptionText.text = $"Receba <color=green>+1</color> bola (atualmente: <color=blue> {DispararBolas.instance.originalQuantidadeBolasMax}</color> + <color=green>{amountOfTimesBought}</color>)";
     }
     #region Save and Load
     public override SaveUpgrades Save()
@@ -34,8 +40,8 @@ public class BiggerNumber : ShopItem
     }
     protected override void AfterLoad()
     {
-        base.AfterLoad();
         UpdateDescription();
+        base.AfterLoad();
     }
     #endregion
 }

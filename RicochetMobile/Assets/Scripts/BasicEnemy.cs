@@ -47,7 +47,6 @@ public class BasicEnemy : EnemyStatus
 
         if (Vida <= 0)
         {
-            print("ai ai to morrendo me ajuda");
             OnDie();
         }
     }

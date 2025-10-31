@@ -9,10 +9,14 @@ public class ExponentialGrowth : ShopItem
     [SerializeField] int eachXRounds = 4;
 
     PlayerStats playerStats;
+    private void Awake()
+    {
+        playerStats = PlayerStats.instance;
+
+    }
     protected override void Start()
     {
         base.Start();
-        playerStats = PlayerStats.instance;
     }
     protected override void Buy()
     {
@@ -26,16 +30,26 @@ public class ExponentialGrowth : ShopItem
             playerStats.unlockedExponentialGrowth = true;
             playerStats.damageToIncrease += amountToAdd;
             playerStats.eachXRounds = eachXRounds;
-            components.descriptionText.text = $"Recebe <color=red> { playerStats.damageToIncrease } </color> de dano a cada <color=green> { eachXRounds }</color> rodadas";
+            UpdateDescription();
             return;
         }
         playerStats.eachXRounds -= 1;
+        eachXRounds = playerStats.eachXRounds;
+        UpdateDescription();
+    }
+    void UpdateDescription()
+    {
         components.descriptionText.text = $"Recebe <color=red> { playerStats.damageToIncrease } </color> de dano a cada <color=green> { eachXRounds }</color> rodadas";
     }
     public override void UpdateCostText()
     {
         base.UpdateCostText();
     }
+    public override void CheckIfCanBuyAgain()
+    {
+        base.CheckIfCanBuyAgain();
+    }
+    #region Save and Load
     public override SaveUpgrades Save()
     {
         Stat amountToAdd = new Stat();
@@ -70,9 +84,8 @@ public class ExponentialGrowth : ShopItem
     protected override void AfterLoad()
     {
         base.AfterLoad(); //base ja aplica os valores de custo
-        if (playerStats.unlockedExponentialGrowth)
-        {
-            components.descriptionText.text = $"Recebe <color=red> {playerStats.damageToIncrease} </color> de dano a cada <color=green> {eachXRounds}</color> rodadas";
-        }
+        if(playerStats == null) print("player stats nulo");
+        components.descriptionText.text = $"Recebe <color=red> {playerStats.damageToIncrease} </color> de dano a cada <color=green> {eachXRounds}</color> rodadas";
     }
+    #endregion
 }

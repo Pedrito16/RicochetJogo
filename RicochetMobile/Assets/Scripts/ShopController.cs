@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using System;
 using System.IO;
 using System.Collections.Generic;
+using TMPro;
 #region Classes puras de save
 [Serializable]
 public class Stat
@@ -32,6 +33,7 @@ public class ShopController : MonoBehaviour
 
     [Header("Shop Config")]
     [SerializeField] ShopItem[] shopItems;
+    [SerializeField] TextMeshProUGUI moneyText;
 
     [Header("Save Config")]
     [SerializeField] SaveUpgradesWrapper saveUpgrades;
@@ -46,10 +48,10 @@ public class ShopController : MonoBehaviour
             instance = this;
         }
         path = Application.persistentDataPath + jsonName;
-        Load();
     }
     void Start()
     {
+        Load();
         shop.SetActive(false);
         activateButton.onClick.AddListener(() => SetActive(true));
         deactivateButton.onClick.AddListener(() => SetActive(false));

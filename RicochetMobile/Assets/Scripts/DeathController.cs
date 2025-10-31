@@ -1,15 +1,29 @@
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 using TMPro;
-public class DeathScreen : MonoBehaviour
+public class DeathController : MonoBehaviour
 {
     public static bool isDead = false;
     [SerializeField] private GameObject deathPanel;
     [SerializeField] TextMeshProUGUI scoreText;
+    public UnityEvent onDie;
+    public static DeathController instance;
+    private void Awake()
+    {
+        if(instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
     void Start()
     {
         deathPanel.SetActive(false);
-        PlayerStats.instance.ApplyListeners();
+        PlayerStats.instance.OnStartGame();
     }
 
 
@@ -23,6 +37,7 @@ public class DeathScreen : MonoBehaviour
         GameManager gameManager = GameManager.instance;
         
         scoreText.text = "Rodadas sobrevividas: " + gameManager.howManyRoudsPassed.ToString();
+        onDie?.Invoke();
         Time.timeScale = 0f;
         deathPanel.SetActive(true);
     }

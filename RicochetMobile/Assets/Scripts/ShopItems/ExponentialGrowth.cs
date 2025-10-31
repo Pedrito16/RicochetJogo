@@ -34,7 +34,7 @@ public class ExponentialGrowth : ShopItem
             return;
         }
         playerStats.eachXRounds -= 1;
-        eachXRounds = playerStats.eachXRounds;
+        eachXRounds -= 1;
         UpdateDescription();
     }
     void UpdateDescription()
@@ -79,13 +79,15 @@ public class ExponentialGrowth : ShopItem
             {
                 eachXRounds = saveUpgrade.stats[i].value;
             }
+            AfterLoad();
         }
     }
     protected override void AfterLoad()
     {
         base.AfterLoad(); //base ja aplica os valores de custo
-        if(playerStats == null) print("player stats nulo");
+        if (playerStats.unlockedExponentialGrowth)
         components.descriptionText.text = $"Recebe <color=red> {playerStats.damageToIncrease} </color> de dano a cada <color=green> {eachXRounds}</color> rodadas";
+        CheckIfCanBuyAgain();
     }
     #endregion
 }

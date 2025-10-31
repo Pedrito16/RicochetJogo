@@ -60,9 +60,13 @@ public class ShopController : MonoBehaviour
     {
         shop.SetActive(active);
         if (!active) return;
-        for(int i = 0; i < shopItems.Length; i++)
+        CheckIfCanBuyAll();
+    }
+    public void CheckIfCanBuyAll()
+    {
+        for (int i = 0; i < shopItems.Length; i++)
         {
-            shopItems[i].UpdateCostText();
+            shopItems[i].CheckIfCanBuyAgain();
         }
     }
     public void Save()

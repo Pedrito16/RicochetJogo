@@ -26,35 +26,48 @@ public abstract class ShopItem : MonoBehaviour
     }
     protected virtual void Buy()
     {
-        if (!CanBuy() || amountOfTimesBought >= maximumAmountOfTimesCanBuy)
+        if (!CanBuy() && amountOfTimesBought >= maximumAmountOfTimesCanBuy)
         {
             return;
         }
         PlayerStats.instance.AddMoney(-cost);
+        ShopController.instance.CheckIfCanBuyAll();
         cost = Mathf.FloorToInt(cost + cost * 0.5f);
         components.costText.text = cost.ToString();
 
-        CheckIfCanBuyAgain();
         DoAction();
-        UpdateCostText();
     }
     protected abstract void DoAction();
 
     public virtual void UpdateCostText()
     {
-        if (CanBuy() || amountOfTimesBought >= maximumAmountOfTimesCanBuy) components.costText.color = Color.green;
+        if (CanBuy())
+        {
+            if(amountOfTimesBought >= maximumAmountOfTimesCanBuy);
+            else components.costText.color = Color.red;
+        }
         else components.costText.color = Color.red;
     }
     public virtual void CheckIfCanBuyAgain()
     {
         UpdateCostText();
-        if (!CanBuy() || amountOfTimesBought >= maximumAmountOfTimesCanBuy)
+        if (CanBuy())
         {
-            components.buyButton.interactable = false;
+            if (amountOfTimesBought < maximumAmountOfTimesCanBuy)
+            {
+                components.buyButton.interactable = true;
+                components.costText.color = Color.green;
+            }
+            else
+            {
+                components.buyButton.interactable = false;
+                components.costText.color = Color.red;
+            }
         }
         else
         {
-            components.buyButton.interactable = true;
+            components.buyButton.interactable = false;
+            components.costText.color = Color.red;
         }
     }
      protected bool CanBuy()

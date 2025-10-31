@@ -4,10 +4,10 @@ using UnityEngine.SceneManagement;
 using TMPro;
 public class DeathController : MonoBehaviour
 {
-    public static bool isDead = false;
     [SerializeField] private GameObject deathPanel;
     [SerializeField] TextMeshProUGUI scoreText;
     public UnityEvent onDie;
+    bool dieOnce;
     public static DeathController instance;
     private void Awake()
     {
@@ -25,19 +25,14 @@ public class DeathController : MonoBehaviour
         deathPanel.SetActive(false);
         PlayerStats.instance.OnStartGame();
     }
-
-
-    void Update()
-    {
-        if (isDead) Die();
-    }
     [ContextMenu("Perder agora")]
-    void Die()
+    public void Die()
     {
+        if (dieOnce) return;
+        dieOnce = true;
         GameManager gameManager = GameManager.instance;
-        
-        scoreText.text = "Rodadas sobrevividas: " + gameManager.howManyRoudsPassed.ToString();
         onDie?.Invoke();
+        scoreText.text = "Rodadas sobrevividas: " + gameManager.howManyRoudsPassed.ToString();
         Time.timeScale = 0f;
         deathPanel.SetActive(true);
     }
@@ -45,7 +40,6 @@ public class DeathController : MonoBehaviour
     {
         
         deathPanel.SetActive(false);
-        isDead = false;
         ScoreController.instance.Save();
         ShopController.instance.Save();  //no futuro, trocar esses saves para um delegate, pra organizar melhor
         PlayerStats.instance.Save();

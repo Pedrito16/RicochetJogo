@@ -23,6 +23,7 @@ public class BiggerNumber : ShopItem
     public override void CheckIfCanBuyAgain()
     {
         base.CheckIfCanBuyAgain();
+
     }
     void UpdateDescription()
     {
@@ -41,6 +42,7 @@ public class BiggerNumber : ShopItem
     protected override void AfterLoad()
     {
         UpdateDescription();
+        CheckIfCanBuyAgain();
         base.AfterLoad();
     }
     #endregion

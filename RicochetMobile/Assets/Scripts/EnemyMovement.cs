@@ -30,7 +30,7 @@ public class EnemyMovement : EnemyStatus
             
         if (howManyRoundsSurvived >= roundsToWin)
         {
-            DeathController.isDead = true;
+            DeathController.instance.Die();
         }
         StartCoroutine(MoveToNextTile());   
     }

@@ -1,5 +1,6 @@
 using System.IO;
 using UnityEngine;
+using TMPro;
 [System.Serializable]
 public class PlayerData
 {
@@ -21,6 +22,8 @@ public class PlayerStats : MonoBehaviour
     public bool unlockedExponentialGrowth;
     public int damageToIncrease;
     public int eachXRounds;
+    [SerializeField] TextMeshProUGUI coinText;
+
     [Header("Save")]
     [SerializeField] string path = "/PlayerData.json";
     public int currentMoney { get; private set; }
@@ -38,7 +41,7 @@ public class PlayerStats : MonoBehaviour
     private void Start()
     {
         Load();
-
+        AddMoneyOnGameEnd.instance.UpdateMoney(currentMoney);
     }
     public void OnStartGame() //ta sendo ativado pelo script de morte, porque ele re-aplica em todo inicio de jogo (ja que esse aqui é dontdestroy) ou seja, tem dependencia
     {
@@ -51,7 +54,8 @@ public class PlayerStats : MonoBehaviour
     } 
     public void AddMoney(int amount)
     {
-        currentMoney += amount;
+        currentMoney = Mathf.Max(0, currentMoney + amount);
+        AddMoneyOnGameEnd.instance.UpdateMoney(currentMoney);
     }
     public int CalculateBallDamage()
     {
@@ -68,6 +72,8 @@ public class PlayerStats : MonoBehaviour
     void Add()
     {
         currentMoney += 10;
+        AddMoneyOnGameEnd.instance.UpdateMoney(currentMoney);
+        print(currentMoney);
     }
     #region Save and Load
     public void Save()

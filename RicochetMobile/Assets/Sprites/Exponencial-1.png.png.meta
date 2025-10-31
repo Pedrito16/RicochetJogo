@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: cadb3a007498fb84f941219dc4476b94
+guid: 32faf19e06227f543b121181f9f04ef4
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7511377540184066774
-    second: upgrade bola de fogo-1.png_0
+      213: -2243339013549461843
+    second: Exponencial-1.png_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,7 +113,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: upgrade bola de fogo-1.png_0
+      name: Exponencial-1.png_0
       rect:
         serializedVersion: 2
         x: 0
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6dac4886316cd3860800000000000000
-      internalID: 7511377540184066774
+      spriteID: daeeb9a8d0f0ed0e0800000000000000
+      internalID: -2243339013549461843
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      upgrade bola de fogo-1.png_0: 7511377540184066774
+      Exponencial-1.png_0: -2243339013549461843
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

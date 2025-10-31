@@ -6,11 +6,10 @@ public class Ball : MonoBehaviour, IResetPosWall
     [SerializeField] AudioSource audioSource;
     [SerializeField] Vector2 ballDirection;
     [SerializeField] Rigidbody2D rb;
-    public int damage;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        damage = 1;
+
     }
     void OnBecameInvisible()
     {
@@ -40,17 +39,13 @@ public class Ball : MonoBehaviour, IResetPosWall
         float randomPitch = Random.Range(0.8f, 1.2f);
         audioSource.pitch = randomPitch;
         audioSource.PlayOneShot(audioSource.clip);
-        if (collision.gameObject.TryGetComponent(out EnemyStatus enemy))
+        if (collision.gameObject.TryGetComponent(out BasicEnemy enemy))
         {
-            enemy.TakeDamage(damage);
+            enemy.TakeDamage(PlayerStats.instance.totalBallDamage);
         }
         if (collision.gameObject.CompareTag("Wall"))
         {
             ResetPos();
         }
-    }
-    public void RotateBall()
-    {
-        
     }
 }

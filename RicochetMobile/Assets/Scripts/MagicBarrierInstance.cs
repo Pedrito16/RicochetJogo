@@ -31,6 +31,7 @@ public class MagicBarrierInstance : MonoBehaviour
     }
     IEnumerator DestroyBarrier()
     {
+        transform.SetParent(null);
         animator.SetBool("BarrierActive", false);
         circleCol.enabled = false;
         yield return new WaitForSeconds(1.2f);

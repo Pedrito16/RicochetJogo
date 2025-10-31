@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 using TMPro;
 public class DeathScreen : MonoBehaviour
@@ -6,20 +7,24 @@ public class DeathScreen : MonoBehaviour
     public static bool isDead = false;
     [SerializeField] private GameObject deathPanel;
     [SerializeField] TextMeshProUGUI scoreText;
-    Ball bolasGordas;
+    public UnityEvent onRestart;
     void Start()
     {
-        deathPanel.SetActive(false); 
+        deathPanel.SetActive(false);
+        PlayerStats.instance.ApplyListeners();
     }
 
-    
+
     void Update()
     {
         if (isDead) Die();
     }
+    [ContextMenu("Perder agora")]
     void Die()
     {
-        scoreText.text = "Rodadas sobrevividas: " + GameManager.instance.howManyRoudsPassed.ToString();
+        GameManager gameManager = GameManager.instance;
+        
+        scoreText.text = "Rodadas sobrevividas: " + gameManager.howManyRoudsPassed.ToString();
         Time.timeScale = 0f;
         deathPanel.SetActive(true);
     }

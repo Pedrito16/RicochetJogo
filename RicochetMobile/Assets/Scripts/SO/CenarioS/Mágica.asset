@@ -27,8 +27,8 @@ MonoBehaviour:
   - {fileID: -7329339301182113960, guid: 79db26291b97f044a8f226b20a0ecab4, type: 3}
   sideWalls: {fileID: -9068386428619031884, guid: 221a788c9f280bb4283e214149b0c389, type: 3}
   groundSprite:
-  - {fileID: -1581374809, guid: 1b286d56e4844f94e86f25f2846078f7, type: 3}
-  - {fileID: 8338919040665198271, guid: 8508bdd3082e5144a9fdb1b93bd25207, type: 3}
+  - {fileID: 6698100046397615709, guid: 368192acf75eef34b9fc9d61d679d654, type: 3}
+  - {fileID: -4734710393382281158, guid: 28f73f426e0f984489f26b4eaf2aad14, type: 3}
   - {fileID: 8338919040665198271, guid: 8508bdd3082e5144a9fdb1b93bd25207, type: 3}
   barrierSprite: {fileID: -3484619876142863711, guid: fcdd5fd31b3b70d49994133207da7b51, type: 3}
   topSprite: {fileID: 0}

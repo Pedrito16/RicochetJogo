@@ -30,7 +30,7 @@ public class EnemyConverter : MonoBehaviour
         instance = this;
         for (int i = 0; i < poolSize; i++)
         {
-            GameObject obj = Instantiate(originalObject);
+            GameObject obj = Instantiate(originalObject, transform);
             EnemyComponents enemyComponent = new EnemyComponents(obj, obj.GetComponent<EnemyMovement>(), obj.GetComponent<BasicEnemy>(), obj.GetComponent<Animator>());
 
             obj.SetActive(false);

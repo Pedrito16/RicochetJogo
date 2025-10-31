@@ -40,6 +40,7 @@ public abstract class ShopItem : MonoBehaviour
         if (money >= cost) components.costText.color = Color.green;
         else components.costText.color = Color.red;
     }
+    #region Save and Load
     public virtual SaveUpgrades Save()
     {
         SaveUpgrades saveUpgrade = new SaveUpgrades();
@@ -47,4 +48,16 @@ public abstract class ShopItem : MonoBehaviour
         saveUpgrade.cost = cost;
         return saveUpgrade;
     }
+    public virtual void Load(SaveUpgrades saveUpgrade)
+    {
+        print("loading");
+        amountOfTimesBought = saveUpgrade.amountOfUpgradesBought;
+        cost = saveUpgrade.cost;
+    }
+    protected virtual void AfterLoad()
+    {
+        components.costText.text = cost.ToString();
+        UpdateCostText();
+    }
+    #endregion
 }

@@ -45,14 +45,14 @@ public class ShopController : MonoBehaviour
         {
             instance = this;
         }
+        path = Application.persistentDataPath + jsonName;
+        Load();
     }
     void Start()
     {
-        path = Application.persistentDataPath + jsonName;
         shop.SetActive(false);
         activateButton.onClick.AddListener(() => SetActive(true));
         deactivateButton.onClick.AddListener(() => SetActive(false));
-        Save();
     }
     void SetActive(bool active)
     {
@@ -75,6 +75,13 @@ public class ShopController : MonoBehaviour
     }
     public void Load()
     {
-
+        if (File.Exists(path))
+        {
+            SaveUpgradesWrapper saveUpgradesWrapper = JsonUtility.FromJson<SaveUpgradesWrapper>(File.ReadAllText(path));
+            for (int i = 0; i < shopItems.Length; i++)
+            {
+                shopItems[i].Load(saveUpgradesWrapper.saveUpgrades[i]);
+            }
+        }
     }
 }

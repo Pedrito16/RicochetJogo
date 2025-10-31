@@ -32,7 +32,7 @@ public class EnemyMovement : EnemyStatus
         {
             DeathScreen.isDead = true;
         }
-        StartCoroutine(MoveToNextTile());
+        StartCoroutine(MoveToNextTile());   
     }
     public IEnumerator MoveToNextTile()
     {

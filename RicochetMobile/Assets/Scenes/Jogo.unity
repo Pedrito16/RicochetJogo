@@ -1152,6 +1152,7 @@ MonoBehaviour:
   unlockedExponentialGrowth: 0
   damageToIncrease: 0
   eachXRounds: 0
+  path: /PlayerData.json
 --- !u!4 &193649879
 Transform:
   m_ObjectHideFlags: 0
@@ -1361,7 +1362,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Recebe <color=red>0</color> de dano a cada <color=green>4</color> rodadas
+  m_text: Recebe <color=red>0</color> de dano a cada <color=green>6</color> rodadas
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1913,9 +1914,10 @@ MonoBehaviour:
   deactivateButton: {fileID: 817972301}
   shopItems:
   - {fileID: 789582331}
+  - {fileID: 735266483}
   saveUpgrades:
     saveUpgrades: []
-  jsonName: SavedUpgrades.json
+  jsonName: /SavedUpgrades.json
   path: 
 --- !u!114 &423222772
 MonoBehaviour:
@@ -2489,9 +2491,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deathPanel: {fileID: 158667266}
   scoreText: {fileID: 182723332}
-  onRestart:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!1 &577850037
 GameObject:
   m_ObjectHideFlags: 0
@@ -3294,7 +3293,7 @@ MonoBehaviour:
     descriptionText: {fileID: 263484485}
     costText: {fileID: 1272872338}
   amountToAdd: 1
-  eachXRounds: 6
+  eachXRounds: 9
 --- !u!1 &794213715
 GameObject:
   m_ObjectHideFlags: 0
@@ -8718,7 +8717,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Receba <color=green>+1</color> bola (atualmente: )'
+  m_text: 'Receba <color=green>+1</color> bola (atualmente: <color=blue> 10</color>
+    + <color=green>0</color>)'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

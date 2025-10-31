@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 using TMPro;
 public class DeathScreen : MonoBehaviour
@@ -7,7 +6,6 @@ public class DeathScreen : MonoBehaviour
     public static bool isDead = false;
     [SerializeField] private GameObject deathPanel;
     [SerializeField] TextMeshProUGUI scoreText;
-    public UnityEvent onRestart;
     void Start()
     {
         deathPanel.SetActive(false);
@@ -30,9 +28,12 @@ public class DeathScreen : MonoBehaviour
     }
     public void RestartGame()
     {
+        
         deathPanel.SetActive(false);
         isDead = false;
         ScoreController.instance.Save();
+        ShopController.instance.Save();  //no futuro, trocar esses saves para um delegate, pra organizar melhor
+        PlayerStats.instance.Save();
         GameManager.instance.howManyRoudsPassed = 0;
         Time.timeScale = 1f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);

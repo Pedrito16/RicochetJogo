@@ -20,6 +20,7 @@ public class ExponentialGrowth : ShopItem
     }
     protected override void DoAction()
     {
+        amountOfTimesBought += 1;
         if (!playerStats.unlockedExponentialGrowth)
         {
             playerStats.unlockedExponentialGrowth = true;
@@ -50,5 +51,28 @@ public class ExponentialGrowth : ShopItem
         saveUpgrade.stats.Add(amountToAdd);
         saveUpgrade.stats.Add(eachX);
         return saveUpgrade;
+    }
+    public override void Load(SaveUpgrades saveUpgrade)
+    {
+        base.Load(saveUpgrade);
+        for (int i = 0; i < saveUpgrade.stats.Count; i++)
+        {
+            if(saveUpgrade.stats[i].key == nameof(amountToAdd)) //se tiver o mesmo nome
+            {
+                amountToAdd = saveUpgrade.stats[i].value; //pega o valor guardado (dictionary)
+            }
+            else if (saveUpgrade.stats[i].key == nameof(eachXRounds))
+            {
+                eachXRounds = saveUpgrade.stats[i].value;
+            }
+        }
+    }
+    protected override void AfterLoad()
+    {
+        base.AfterLoad(); //base ja aplica os valores de custo
+        if (playerStats.unlockedExponentialGrowth)
+        {
+            components.descriptionText.text = $"Recebe <color=red> {playerStats.damageToIncrease} </color> de dano a cada <color=green> {eachXRounds}</color> rodadas";
+        }
     }
 }

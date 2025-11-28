@@ -26,6 +26,7 @@ public class RecieveBalls : MonoBehaviour
     void Start()
     {
         dispararBolas = DispararBolas.instance;
+        ballXCordinate = dispararBolas.transform.parent.position.x;
         ballsQuantity = dispararBolas.quantidadeBolasMax;
         canRecievePos = true;
         gameObject.SetActive(false);

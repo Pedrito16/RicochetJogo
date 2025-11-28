@@ -69,18 +69,22 @@ public class DispararBolas : MonoBehaviour
     {
         if(GameManager.instance.state == GameState.PlayerTurn)
         {
-            if (Input.GetMouseButton(0) && canShoot && !alreadyShooted)
+            if(Input.touchCount > 0)
             {
-                lineRenderer.enabled = true;
-                mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                Aim();
-            }
-            if (Input.GetMouseButtonUp(0) && canShoot && !alreadyShooted && isOnBounds)
-            {
-                alreadyShooted = true;
-                lineRenderer.enabled = false;
-                lineCircle.gameObject.SetActive(false);
-                StartCoroutine(ShotBalls(mousePos));
+                Touch touch = Input.GetTouch(0);
+                if(touch.phase == TouchPhase.Moved && canShoot && !alreadyShooted)
+                {
+                    lineRenderer.enabled = true;
+                    mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                    Aim();
+                }
+                if(touch.phase == TouchPhase.Ended && canShoot && !alreadyShooted && isOnBounds)
+                {
+                    alreadyShooted = true;
+                    lineRenderer.enabled = false;
+                    lineCircle.gameObject.SetActive(false);
+                    StartCoroutine(ShotBalls(mousePos));
+                }
             }
         }
         

@@ -111,7 +111,7 @@ MonoBehaviour:
   vida: 0
   tilesDistance: 1
   velocidade: 2
-  roundsToWin: 6
+  roundsToWin: 7
   howManyRoundsSurvived: 1
   enemyStats: {fileID: 0}
 --- !u!114 &3624493523607257502

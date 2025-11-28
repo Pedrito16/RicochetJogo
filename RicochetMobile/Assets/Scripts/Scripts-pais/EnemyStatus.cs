@@ -4,7 +4,7 @@ using UnityEngine;
 
 public abstract class EnemyStatus : MonoBehaviour
 {
-    private float distanciaMovimentação = 0.9f;
+    private float distanciaMovimentação = 1.3f;
     [SerializeField] private int vida;
     public static EnemyStatus instance;
 

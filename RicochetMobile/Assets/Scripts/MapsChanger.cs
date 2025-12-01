@@ -5,8 +5,10 @@ public class MapsChanger : MonoBehaviour
     [SerializeField] CenarioSO[] maps;
     [SerializeField] int currentMapIndex;
     [SerializeField] int currentTurn;
+
     public delegate void OnMapChange(CenarioSO cenario);
     public OnMapChange OnMapSwitch;
+
     public static MapsChanger instance;
     private void Awake()
     {

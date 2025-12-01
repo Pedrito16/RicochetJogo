@@ -7,7 +7,7 @@ public class EnemyMovement : EnemyStatus
     public int tilesDistance = 1;
 
     [SerializeField] float velocidade;
-    [SerializeField] int roundsToWin = 8;
+    public int roundsToWin = 8;
     public int howManyRoundsSurvived = 1;
     public BasicEnemy enemyStats;
 

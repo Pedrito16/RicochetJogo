@@ -50,6 +50,6 @@ public class SpawnEnemies : MonoBehaviour
     }
     int GetEnemyLifeGrowth()
     {
-        return Mathf.FloorToInt(GameManager.instance.howManyRoudsPassed / 2);
+        return Mathf.FloorToInt(GameManager.instance.howManyRoudsPassed);
     }
 }

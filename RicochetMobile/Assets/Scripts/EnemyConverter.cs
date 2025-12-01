@@ -45,8 +45,11 @@ public class EnemyConverter : MonoBehaviour
     public EnemyComponents GetEnemy(Inimigos newEnemy, int lifeInRounds)
     {
         EnemyComponents enemyComponent = enemyPool.Dequeue();
+        EnemyMovement movementScript = enemyComponent.movementScript;
 
-        enemyComponent.movementScript.tilesDistance = newEnemy.tilesDistance;
+        movementScript.tilesDistance = newEnemy.tilesDistance;
+        movementScript.roundsToWin = movementScript.roundsToWin - Mathf.Max(movementScript.tilesDistance - 1, 0);
+
         enemyComponent.enemyLife.Vida = newEnemy.life + lifeInRounds;
         enemyComponent.enemyLife.currentEnemy = newEnemy;
         enemyComponent.enemyLife.Setup(newEnemy.mainSprite);

@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Jogo.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    path: Assets/Scenes/JogoPassandoProMobas.unity
+    guid: 758e07d5c8d85924b90b0de3cec873a1
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0

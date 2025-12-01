@@ -6994,7 +6994,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.69
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -8232,11 +8232,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SoundTrack
   audioSource: {fileID: 1504565382}
   soundtracksPerMap:
-  - {fileID: 8300000, guid: 70209165a761b354abf7110d37dd838c, type: 3}
-  - {fileID: 8300000, guid: 9151505f44bbeac469487669bb09c883, type: 3}
-  - {fileID: 8300000, guid: f6d075d6c3ec7c34d84478ae9ee15cdb, type: 3}
-  - {fileID: 0}
-  transitionSound: {fileID: 8300000, guid: e5d0598b355e7a84482e286ee20b9e7e, type: 3}
+  - {fileID: 8300000, guid: b579cb6392730ef4cb9c9da7add62501, type: 3}
+  - {fileID: 8300000, guid: 544d4ad5774dfde4bbdcd0ff31281f10, type: 3}
+  - {fileID: 8300000, guid: d8bd2af7ab9d56446bad3e4053d79bbe, type: 3}
+  - {fileID: 8300000, guid: da52bf24f627518459e059c21f8437e5, type: 3}
+  transitionSound: {fileID: 8300000, guid: 5ae9467a72436014687c7e86aa9af677, type: 3}
   transitionTime: 2
   currentMapIndex: -1
 --- !u!1 &1827409952

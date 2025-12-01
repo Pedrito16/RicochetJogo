@@ -15,6 +15,7 @@ public class SoundTrack : MonoBehaviour
     [SerializeField] int currentMapIndex = 0;
     void Start()
     {
+        PlaySoundTrack();
         MapsChanger.instance.OnMapSwitch += PlayTransition;
     }
     void Update()
@@ -23,14 +24,13 @@ public class SoundTrack : MonoBehaviour
     }
     public void PlaySoundTrack()
     {
-        if (soundtracksPerMap[currentMapIndex + 1] != null)
+        currentMapIndex = (currentMapIndex + 1) % soundtracksPerMap.Length;
+        if (soundtracksPerMap[currentMapIndex] != null)
         {
             print("Ativei");
-            currentMapIndex = (currentMapIndex + 1) % soundtracksPerMap.Length;
             audioSource.clip = soundtracksPerMap[currentMapIndex];
 
             audioSource.Play();
-            currentMapIndex += 1;
         }
     }
     public void PlayTransition(CenarioSO cenario)
